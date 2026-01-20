@@ -1,0 +1,225 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: scripts/stress_postlogin_test.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 1 max VUs, 50m30s max duration (incl. graceful stop):
+              * post_login_load: 1 iterations shared among 1 VUs (maxDuration: 50m0s, gracefulStop: 30s)
+
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+time="2026-01-20T12:49:37+05:30" level=info msg="Session ID: 411192" source=console
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+time="2026-01-20T12:49:41+05:30" level=info msg="✅ TOKEN GENERATED ONCE" source=console
+time="2026-01-20T12:49:41+05:30" level=info msg="➡️ default() | VU=1 | ITER=0" source=console
+time="2026-01-20T12:49:41+05:30" level=info msg="\n Test 1: Profile API" source=console
+time="2026-01-20T12:49:41+05:30" level=info msg="✅ RESULT: Profile API PASSED" source=console
+time="2026-01-20T12:49:41+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:41+05:30" level=info msg="\n Test 2: Related Course API" source=console
+
+running (00m07.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m00.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:42+05:30" level=info msg="⏱ Related Course RT: 409 ms" source=console
+time="2026-01-20T12:49:42+05:30" level=info msg="📘 Related Course 1: AI for Accountants: Friend or Foe" source=console
+time="2026-01-20T12:49:42+05:30" level=info msg="📘 Related Course 2: Investigating Fraud with Data Models" source=console
+time="2026-01-20T12:49:42+05:30" level=info msg="✅ RESULT: Related Course API PASSED" source=console
+time="2026-01-20T12:49:42+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:42+05:30" level=info msg="\n Test 3: Course Details API" source=console
+time="2026-01-20T12:49:43+05:30" level=info msg="⏱ Course Details RT: 667 ms" source=console
+time="2026-01-20T12:49:43+05:30" level=info msg="📘 Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-01-20T12:49:43+05:30" level=info msg="✅ RESULT: Course Details API PASSED" source=console
+time="2026-01-20T12:49:43+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:43+05:30" level=info msg="\n Test 4: Complimentary Course API" source=console
+
+running (00m08.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m01.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:44+05:30" level=info msg="⏱ Complimentary Course RT (ms): 988" source=console
+time="2026-01-20T12:49:44+05:30" level=info msg=" Complimentary Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-01-20T12:49:44+05:30" level=info msg="✅ RESULT: Complimentary Course API PASSED" source=console
+time="2026-01-20T12:49:44+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:44+05:30" level=info msg="\n Test 5: Masterclass Track 1 API" source=console
+
+running (00m09.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m02.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:44+05:30" level=info msg="⏱ Get Track API RT (ms): 622" source=console
+time="2026-01-20T12:49:44+05:30" level=info msg="🎯 Track Title: Public Speaking for Business Success" source=console
+time="2026-01-20T12:49:44+05:30" level=info msg="✅ RESULT: Masterclass Track 1 API PASSED" source=console
+time="2026-01-20T12:49:44+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:44+05:30" level=info msg="\n Test 6: Masterclass Track 2 API" source=console
+
+running (00m10.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m03.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:45+05:30" level=info msg="⏱ Get Track API RT (ms): 483" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="🎯 Track Title: The State of AI in Accounting" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="✅ RESULT: Masterclass Track 2 API PASSED" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="\n Test 7: Masterclass Track 3 API" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="⏱ Get Track API RT (ms): 447" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="🎯 Track Title: Microsoft Copilot: Dawn of the Intelligent System" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="✅ RESULT: Masterclass Track 3 API PASSED" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="\n Test 8: Subscription API" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="⏱ Subscription API RT (ms): 353" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="Plans on Subscription page: Starter" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="Plans on Subscription page: Pro" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="Plans on Subscription page: Enterprise" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="✅ RESULT: Subscription API PASSED" source=console
+time="2026-01-20T12:49:45+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:45+05:30" level=info msg="\n Test 9: Podcast Track 1 API" source=console
+
+running (00m11.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m04.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:46+05:30" level=info msg="⏱ Podcast Track 6 RT (ms): 402" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="🎧 Podcast Track 6 Title: Riding the AI Wave in Accounting" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="✅ RESULT: Podcast Track 1 API PASSED" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="\n Test 10: Podcast Track 2 API" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="⏱ Podcast Track 2 RT (ms): 409" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="🎧 Podcast Track 2 Title: Decoding Tax Automation" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="✅ RESULT: Podcast Track 2 API PASSED" source=console
+time="2026-01-20T12:49:46+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:46+05:30" level=info msg="\n Test 11: Podcast Track 3 API" source=console
+
+running (00m12.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m05.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:47+05:30" level=info msg="⏱ Podcast Track 3 RT (ms): 393" source=console
+time="2026-01-20T12:49:47+05:30" level=info msg="🎧 Podcast Track 3 Title: Balance Sheet for Life" source=console
+time="2026-01-20T12:49:47+05:30" level=info msg="✅ RESULT: Podcast Track 3 API PASSED" source=console
+time="2026-01-20T12:49:47+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:47+05:30" level=info msg="\n Test 12: Complimentary Podcast Course API" source=console
+
+running (00m13.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m06.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:48+05:30" level=info msg="⏱ Complimentary Course RT (ms): 1549" source=console
+time="2026-01-20T12:49:48+05:30" level=info msg=" Podcast Complimentary Course Title: CIOs and CPAs: Partners in Progress" source=console
+time="2026-01-20T12:49:48+05:30" level=info msg="✅ RESULT: Complimentary Podcast Course API PASSED" source=console
+time="2026-01-20T12:49:48+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:48+05:30" level=info msg="\n Test 13: Essential Podcast Course API" source=console
+
+running (00m14.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m07.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:49+05:30" level=info msg="⏱ Complimentary Course RT (ms): 555" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg=" Complimentary Course Title: Think Plan Grow with AI" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg="✅ RESULT: Essential Podcast Course API PASSED" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:49+05:30" level=info msg="\n Test 14: Nano Track 1 API" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg="⏱ Nano Track 1 RT (ms): 443" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg="📘 Nano Track 1 Title: Workday on Autopilot with ChatGPT" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg="✅ RESULT: Nano Track 1 API PASSED" source=console
+time="2026-01-20T12:49:49+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:49+05:30" level=info msg="\n Test 15: Nano Track 2 API" source=console
+
+running (00m15.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m08.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:50+05:30" level=info msg="⏱ Nano Track 2 RT (ms): 419" source=console
+time="2026-01-20T12:49:50+05:30" level=info msg="📘 Nano Track 2 Title: AI Skills for Auditors" source=console
+time="2026-01-20T12:49:50+05:30" level=info msg="✅ RESULT: Nano Track 2 API PASSED" source=console
+time="2026-01-20T12:49:50+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:50+05:30" level=info msg="\n Test 16: Nano Learning Page 1 API" source=console
+
+running (00m16.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m09.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:51+05:30" level=info msg="⏱ Nano Learning Page 1 RT (ms): 1195" source=console
+time="2026-01-20T12:49:51+05:30" level=info msg="✔ Asserted Nano Learning Title: AI-Driven Cyber Attacks on Accounting Firms" source=console
+time="2026-01-20T12:49:51+05:30" level=info msg="✅ RESULT: Nano Learning Page 1 API PASSED" source=console
+time="2026-01-20T12:49:51+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:51+05:30" level=info msg="\n Test 17: Nano Learning Page 2 API" source=console
+
+running (00m17.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m10.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:52+05:30" level=info msg="⏱ Nano Learning Page 2 RT (ms): 1070" source=console
+time="2026-01-20T12:49:52+05:30" level=info msg="✔ Asserted Nano Learning Title: Accounting Workflows Reimagined with Agents" source=console
+time="2026-01-20T12:49:52+05:30" level=info msg="✅ RESULT: Nano Learning Page 2 API PASSED" source=console
+time="2026-01-20T12:49:52+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:52+05:30" level=info msg="\n Test 18: Nano Learning Page 3 API" source=console
+
+running (00m18.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m11.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:53+05:30" level=info msg="⏱ Nano Learning Page 3 RT (ms): 1500" source=console
+time="2026-01-20T12:49:53+05:30" level=info msg="✔ Asserted Nano Learning Title: Accounting Workflows Reimagined with Agents" source=console
+time="2026-01-20T12:49:53+05:30" level=info msg="✅ RESULT: Nano Learning Page 3 API PASSED" source=console
+time="2026-01-20T12:49:53+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:53+05:30" level=info msg="\n Test 19: Caira Badge Page API" source=console
+
+running (00m19.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m12.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:54+05:30" level=info msg="✔ Badge: CAIRA | Level 1 | Rank: 1 | Credits: 30.00" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="✔ Badge: CAIRA | Level 2 | Rank: 2 | Credits: 60.00" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="✔ Badge: CAIRA | Level 3 | Rank: 3 | Credits: 90.00" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="✅ RESULT: Caira Badge Page API PASSED" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="\n Test 20: Course Library MM1 API" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="⏱ Masterclass Library 1 RT (ms): 480" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="✔ Asserted Masterclass Page 1 Lib Title: Adulting in Business" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="✅ RESULT: Course Library MM1 API PASSED" source=console
+time="2026-01-20T12:49:54+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:54+05:30" level=info msg="\n Test 21: Course Library MM2 API" source=console
+
+running (00m20.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m13.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:55+05:30" level=info msg="⏱ Masterclass Library 2 RT (ms): 477" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="✔ Asserted Masterclass Page 2 Lib Title: Automate the Close, Elevate the Team" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="✅ RESULT: Course Library MM2 API PASSED" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="\n Test 22: Course Library Podcast1 API" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="⏱ Podcast Library 1 RT (ms): 469" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="✔ Asserted Podcast Page 1 Lib Title: Accounting in the Age of Digital Assets" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="✅ RESULT: Course Library Podcast1 API PASSED" source=console
+time="2026-01-20T12:49:55+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:55+05:30" level=info msg="\n Test 23: Course Library Podcast2 API" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="⏱ Podcast Library 2 RT (ms): 400" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✔ Asserted Podcast Page 2 Lib Title: The Future of Trust: CPAs in the Age of AI" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✅ RESULT: Course Library Podcast2 API PASSED" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="\n Test 24: Course Library Nano1 API" source=console
+
+running (00m21.0s), 1/1 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 1 VUs  00m14.8s/50m0s  0/1 shared iters
+time="2026-01-20T12:49:56+05:30" level=info msg="⏱ Nano Library 1 RT (ms): 418" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✔ Asserted Nano Page 1 Lib Title: 007 AI Agents" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✅ RESULT: Course Library Nano1 API PASSED" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="\n Test 25: Course Library Nano2 API" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="⏱ Nano Library 2 RT (ms): 414" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✔ Asserted Nano Page 2 Lib Title: Data First. AI Next." source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✅ RESULT: Course Library Nano2 API PASSED" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="\n================ Final API Tests EXECUTION SUMMARY ================" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="✅ Tests Passed : 25" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="❌ Tests Failed : 0" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="📊 Total Tests : 25" source=console
+time="2026-01-20T12:49:56+05:30" level=info msg="=======================================================\n" source=console
+
+================= FINAL EXECUTION SUMMARY =================
+👥 Total VUs Used        : 1
+🔁 Total Iterations Run  : 1
+
+# Per Iteration Duration
+   • Avg : 15.56 s
+   • Min : 15.56 s
+   • Max : 15.56 s
+===========================================================
+
+running (00m21.8s), 0/1 VUs, 1 complete and 0 interrupted iterations
+post_login_load ✓ [ 100% ] 1 VUs  00m15.6s/50m0s  1/1 shared iters
