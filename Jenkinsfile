@@ -5,7 +5,7 @@ pipeline {
         K6_SCRIPT = 'scripts/stress_postlogin_test.js'
     }
 
-    // stages {
+        stages {
 
     //     stage('Checkout Code') {
     //         steps {
