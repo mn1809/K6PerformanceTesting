@@ -673,6 +673,36 @@ function nanoTrack2API(data) {
   return passed;
 }
 
+/**
+ * ===============================
+ * Reels Page Track 3  API
+ * ===============================
+ */
+
+function nanoTrack3API(data) {
+  const start = Date.now();
+
+  const res = http.get(
+    `${BASE_URL}/api/v2/tracks/8/courses/?course_type=nano_learning&page=1`,
+    {
+      headers: {
+        Authorization: `bearer ${data.token}`,
+        'Content-Type': 'application/json',
+        accept: 'application/json, text/plain, */*',
+        'x-app-type': 'WA',
+      },
+    }
+  );
+  console.log(`⏱ Nano Track 2 RT (ms): ${Date.now() - start}`);
+  const body = res.json();
+  const title = body?.data?.[0]?.title || 'Title not found';
+  console.log(`📘 Nano Track 2 Title: ${title}`);
+  const passed = check(res, {
+    'Nano Track 2 status 200': (r) => r.status === 200,
+    'Nano Track 2 title exists': () => title !== 'Title not found',
+  });
+  return passed;
+}
 
 /**
  * ===============================
@@ -1079,9 +1109,9 @@ export default function (data) {
   runStep('Related Course API', relatedCourseAPI, data);
   runStep('Course Details API', courseDetailsPageAPI, data);
   runStep('Complimentary Course API', complimentaryCourseAPI, data);
-  runStep('Masterclass Track 1 API', verifyTrack1API, data);
-  runStep('Masterclass Track 2 API', verifyTrack2API, data);
-  runStep('Masterclass Track 3 API', verifyTrack3API, data);
+   runStep('Masterclass Track 1 API', verifyTrack1API, data);
+   runStep('Masterclass Track 2 API', verifyTrack2API, data);
+   runStep('Masterclass Track 3 API', verifyTrack3API, data);
   runStep('Subscription API', verifyPlanPageAPI, data);
   runStep('Podcast Track 1 API', podcastTrack1API, data);
   runStep('Podcast Track 2 API', podcastTrack2API, data);
@@ -1090,6 +1120,7 @@ export default function (data) {
   runStep('Essential Podcast Course API', EssentialPodcastCourseAPI, data);
   runStep('Nano Track 1 API', nanoTrack1API, data);
   runStep('Nano Track 2 API', nanoTrack2API, data);
+  runStep('Nano Track 3 API', nanoTrack3API, data);
   runStep('Nano Learning Page 1 API', nanoLearningPage1API, data);
   runStep('Nano Learning Page 2 API', nanoLearningPage2API, data);
   runStep('Nano Learning Page 3 API', nanoLearningPage3API, data);
