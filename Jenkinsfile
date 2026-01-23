@@ -5,14 +5,14 @@ pipeline {
         K6_SCRIPT = 'scripts/stress_postlogin_test.js'
     }
 
-    stages {
+    // stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/mn1809/K6PerformanceTesting.git'
-            }
-        }
+    //     stage('Checkout Code') {
+    //         steps {
+    //             git branch: 'main',
+    //                 url: 'https://github.com/mn1809/K6PerformanceTesting.git'
+    //         }
+    //     }
 
         stage('Verify k6') {
             steps {
