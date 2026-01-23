@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        K6_SCRIPT = 'scripts/stress_postlogin_test.js'   // change path if needed
+        K6_SCRIPT = 'scripts/stress_postlogin_test.js'
     }
 
     stages {
@@ -22,16 +22,14 @@ pipeline {
 
         stage('Run k6 Test') {
             steps {
-                bat """
-                k6 run %K6_SCRIPT%
-                """
+                bat "k6 run ${K6_SCRIPT}"
             }
         }
     }
 
     post {
         always {
-            archiveArtifacts artifacts: '**/summary.html', fingerprint: true
+            archiveArtifacts artifacts: 'logs/**', allowEmptyArchive: true
         }
 
         failure {
@@ -43,3 +41,4 @@ pipeline {
         }
     }
 }
+
