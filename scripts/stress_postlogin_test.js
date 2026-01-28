@@ -16,8 +16,8 @@ export let options = {
   scenarios: {
     post_login_load: {
       executor: 'shared-iterations',
-      vus: 10,
-      iterations: 10,        // Increase this for load
+      vus: 50,
+      iterations: 500,        // Increase this for load
       maxDuration: '50m',
     },
   },
