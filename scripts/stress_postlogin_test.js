@@ -18,7 +18,7 @@ export let options = {
       executor: 'shared-iterations',
       vus: 100,
       iterations: 500,        // Increase this for load
-      maxDuration: '40m',
+      maxDuration: '45m',
     },
   },
 };
