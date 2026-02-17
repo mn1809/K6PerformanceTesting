@@ -16,9 +16,9 @@ export let options = {
   scenarios: {
     post_login_load: {
       executor: 'shared-iterations',
-      vus: 50,
+      vus: 100,
       iterations: 500,        // Increase this for load
-      maxDuration: '50m',
+      maxDuration: '40m',
     },
   },
 };
@@ -579,7 +579,7 @@ function complimentaryPodcastCourseAPI(data) {
 
 /**
  * ===============================
- * Complimentary Courses API- POdcast
+ * Essential Courses API- POdcast
  * ===============================
  */
 function EssentialPodcastCourseAPI(data) {
@@ -598,16 +598,16 @@ function EssentialPodcastCourseAPI(data) {
     }
   );
 
-  console.log(`⏱ Complimentary Course RT (ms): ${Date.now() - start}`);
+  console.log(`⏱ Essential Podcast Course RT (ms): ${Date.now() - start}`);
 
   // ✅ SAFE extraction (handles all response shapes)
   const body = res.json();
 
   let title = body?.data?.[0]?.title || '❌ Title not found';
-  console.log(` Complimentary Course Title: ${title}`);
+  console.log(` Essential Podcast Course Title: ${title}`);
   // ✅ Assertions
   const passed = check(res, {
-    'Complimentary API status 200': (r) => r.status === 200,
+    'Essential Podcast Course API status 200': (r) => r.status === 200,
     'First course title exists': () => title !== '❌ Title not found',
   });
   return passed;
@@ -1069,6 +1069,79 @@ function verifyCourseLibraryNano2API(data) {
 }
 
 
+/**
+ * ===============================
+ * My Orders API
+ * ===============================
+ */
+function verifyMyOrdersAPI(data) {
+  const start = Date.now();
+  const res = http.get(
+    `${BASE_URL}/api/user/order/my_orders/`,
+    {
+      headers: {
+        Authorization: `bearer ${data.token}`,
+        'Content-Type': 'application/json',
+        accept: 'application/json, text/plain, */*',
+        'x-app-type': 'WA',
+      },
+    }
+  );
+  console.log(`⏱ My Orders RT (ms): ${Date.now() - start}`);
+  const body = res.json();
+  let passed = true;
+  let subscriptionValidated = false;
+  // ✅ Basic API checks
+  passed =
+    passed &&
+    check(res, {
+      'My Orders status 200': (r) => r.status === 200,
+      'My Orders API status_code true': () => body?.status_code === true,
+      'My Orders data not empty': () =>
+        Array.isArray(body?.data) && body.data.length > 0,
+    });
+  // ✅ Validate orders
+  for (let order of body?.data || []) {
+    passed =
+      passed &&
+      check(order, {
+        'Order ID valid': (o) => o?.id && o.id > 0,
+      });
+    for (let item of order?.order_items || []) {
+      if (item?.item_type?.toLowerCase() === 'subscription') {
+        const details = item?.item_details || {};
+        passed =
+          passed &&
+          check(item, {
+            'Subscription name valid': () =>
+              details?.subscription_name &&
+              details.subscription_name.trim().length > 0,
+
+            'Plan duration valid': () =>
+              details?.plan_duration &&
+              details.plan_duration > 0,
+
+            'Discount type valid': () =>
+              item?.discount_type &&
+              item.discount_type.trim().length > 0,
+          });
+        console.log(
+          `✔ Order ID: ${order.id} | Subscription: ${details.subscription_name} | Duration: ${details.plan_duration} | Discount Type: ${item.discount_type}`
+        );
+        subscriptionValidated = true;
+      }
+    }
+  }
+  // ✅ Ensure at least one subscription exists
+  passed =
+    passed &&
+    check(subscriptionValidated, {
+      'At least one subscription exists': (v) => v === true,
+    });
+
+  return passed;
+}
+
 
 
 
@@ -1133,6 +1206,7 @@ export default function (data) {
   runStep('Course Library Podcast2 API', verifyCourseLibraryPodcast2API, data);
   runStep('Course Library Nano1 API', verifyCourseLibraryNano1API, data);
   runStep('Course Library Nano2 API', verifyCourseLibraryNano2API, data);
+  runStep('My Orders API', verifyMyOrdersAPI, data);
 
 
   // FINAL SUMMARY
