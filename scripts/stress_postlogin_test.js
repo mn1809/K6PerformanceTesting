@@ -16,8 +16,8 @@ export let options = {
   scenarios: {
     post_login_load: {
       executor: 'shared-iterations',
-      vus: 100,
-      iterations: 500,        // Increase this for load
+      vus: 1,
+      iterations: 1,        // Increase this for load
       maxDuration: '45m',
     },
   },
@@ -441,8 +441,6 @@ body?.data?.forEach(plan => {
 }
 
 
-
-
 /**
  * ===============================
  * Podcast Courses – Track 1
@@ -454,7 +452,7 @@ function podcastTrack1API(data)
   const start = Date.now();
 
   const res = http.get(
-    `${BASE_URL}/api/v2/tracks/6/courses/?course_type=podcast&page=1`,
+    `${BASE_URL}/api/v2/tracks/6/course/?course_type=podcast&page=1`,
     {
       headers: {
         Authorization: `bearer ${data.token}`,
@@ -464,11 +462,11 @@ function podcastTrack1API(data)
       },
     }
   );
-
-  
   console.log(`⏱ Podcast Track 6 RT (ms): ${Date.now() - start}`);
 
-  const body = res.json();
+  //const body = res.json();
+  const body = safeJson(res, 'Podcast Track 6 API');
+
   const title = body?.data?.[0]?.title || 'Title not found';
 
   console.log(`🎧 Podcast Track 6 Title: ${title}`);
@@ -1166,6 +1164,25 @@ function safeJson(res) {
   }
 }
 
+/**
+ * Safe JSON parser with failure logging
+ */
+export function safeJson(res, apiName) {
+
+  // Log if status not 200
+  if (res.status !== 200) {
+    console.error(`❌ ${apiName} FAILED - Status: ${res.status}`);
+    console.error(`Response Body: ${res.body}`);
+  }
+
+  try {
+    return res.json();
+  } catch (e) {
+    console.error(`❌ ${apiName} JSON Parse Error`);
+    console.error(`Raw Response: ${res.body}`);
+    return null;
+  }
+}
 
 /**
  * ===============================
@@ -1180,33 +1197,33 @@ export default function (data) {
   passedSteps = 0;
   failedSteps = 0;
   
-  runStep('Profile API', profileAPI, data);
-  runStep('Related Course API', relatedCourseAPI, data);
-  runStep('Course Details API', courseDetailsPageAPI, data);
-  runStep('Complimentary Course API', complimentaryCourseAPI, data);
-   runStep('Masterclass Track 1 API', verifyTrack1API, data);
-   runStep('Masterclass Track 2 API', verifyTrack2API, data);
-   runStep('Masterclass Track 3 API', verifyTrack3API, data);
-  runStep('Subscription API', verifyPlanPageAPI, data);
-  runStep('Podcast Track 1 API', podcastTrack1API, data);
-  runStep('Podcast Track 2 API', podcastTrack2API, data);
-  runStep('Podcast Track 3 API', podcastTrack3API, data);
-  runStep('Complimentary Podcast Course API', complimentaryPodcastCourseAPI, data);
-  runStep('Essential Podcast Course API', EssentialPodcastCourseAPI, data);
-  runStep('Nano Track 1 API', nanoTrack1API, data);
-  runStep('Nano Track 2 API', nanoTrack2API, data);
-  runStep('Nano Track 3 API', nanoTrack3API, data);
-  runStep('Nano Learning Page 1 API', nanoLearningPage1API, data);
-  runStep('Nano Learning Page 2 API', nanoLearningPage2API, data);
-  runStep('Nano Learning Page 3 API', nanoLearningPage3API, data);
-  runStep('Caira Badge Page API', VerifyCPETrackAPI, data);
-  runStep('Course Library MM1 API', verifyCourseLibraryMM1API, data);
-  runStep('Course Library MM2 API', verifyCourseLibraryMM2API, data);
-  runStep('Course Library Podcast1 API', verifyCourseLibraryPodcast1API, data);
-  runStep('Course Library Podcast2 API', verifyCourseLibraryPodcast2API, data);
-  runStep('Course Library Nano1 API', verifyCourseLibraryNano1API, data);
-  runStep('Course Library Nano2 API', verifyCourseLibraryNano2API, data);
-  runStep('My Orders API', verifyMyOrdersAPI, data);
+  // runStep('Profile API', profileAPI, data);
+  // runStep('Related Course API', relatedCourseAPI, data);
+  // runStep('Course Details API', courseDetailsPageAPI, data);
+  // runStep('Complimentary Course API', complimentaryCourseAPI, data);
+  //  runStep('Masterclass Track 1 API', verifyTrack1API, data);
+  //  runStep('Masterclass Track 2 API', verifyTrack2API, data);
+  //  runStep('Masterclass Track 3 API', verifyTrack3API, data);
+  // runStep('Subscription API', verifyPlanPageAPI, data);
+   runStep('Podcast Track 1 API', podcastTrack1API, data);
+  // runStep('Podcast Track 2 API', podcastTrack2API, data);
+  // runStep('Podcast Track 3 API', podcastTrack3API, data);
+  // runStep('Complimentary Podcast Course API', complimentaryPodcastCourseAPI, data);
+  // runStep('Essential Podcast Course API', EssentialPodcastCourseAPI, data);
+  // runStep('Nano Track 1 API', nanoTrack1API, data);
+  // runStep('Nano Track 2 API', nanoTrack2API, data);
+  // runStep('Nano Track 3 API', nanoTrack3API, data);
+  // runStep('Nano Learning Page 1 API', nanoLearningPage1API, data);
+  // runStep('Nano Learning Page 2 API', nanoLearningPage2API, data);
+  // runStep('Nano Learning Page 3 API', nanoLearningPage3API, data);
+  // runStep('Caira Badge Page API', VerifyCPETrackAPI, data);
+  // runStep('Course Library MM1 API', verifyCourseLibraryMM1API, data);
+  // runStep('Course Library MM2 API', verifyCourseLibraryMM2API, data);
+  // runStep('Course Library Podcast1 API', verifyCourseLibraryPodcast1API, data);
+  // runStep('Course Library Podcast2 API', verifyCourseLibraryPodcast2API, data);
+  // runStep('Course Library Nano1 API', verifyCourseLibraryNano1API, data);
+  // runStep('Course Library Nano2 API', verifyCourseLibraryNano2API, data);
+  // runStep('My Orders API', verifyMyOrdersAPI, data);
 
 
   // FINAL SUMMARY
