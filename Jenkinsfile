@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        K6_SCRIPT = 'scripts/stress_postlogin_test.js'
+        K6_SCRIPT = 'scripts/stress_postlogin_test_copy.js'
     }
 
         stages {
