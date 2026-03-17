@@ -785,7 +785,7 @@ function nanoLearningPage3API(data)
   const start = Date.now();
 
   const res = http.get(
-    `${BASE_URL}/api/nano_learning/?page=2`,
+    `${BASE_URL}/api/nano_learning/?page=3`,
     {
       headers: {
         Authorization: `bearer ${data.token}`,
