@@ -31,7 +31,10 @@ pipeline {
         stage('Run k6 Test') {
             steps {
                 // Runs K6 and saves console log + summary JSON
-                bat "k6 run ${K6_SCRIPT} 2>&1 | tee k6-console.log"
+                //bat "k6 run ${K6_SCRIPT} 2>&1 | tee k6-console.log"
+        // ✅ REPLACE with this (Windows compatible)
+                bat "k6 run ${K6_SCRIPT} > k6-console.log 2>&1"
+                bat "type k6-console.log"  // prints the log to Jenkins console
             }
         }
 
