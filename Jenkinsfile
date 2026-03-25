@@ -58,7 +58,8 @@ pipeline {
                     def vus         = metrics?.vus_max?.values?.max                ?: "N/A"
 
                     // ── 3. Determine pass/fail & priority ────────────────
-                    def errorPct = Math.round(errorRate * 10000) / 100.0
+                    //def errorPct = Math.round(errorRate * 10000) / 100.0
+                    def errorPct = String.format("%.2f", (errorRate * 100) as Double)
                     def status      = (errorRate > 0.05) ? "FAILED" : "PASSED"
                     def priority    = (errorRate > 0.05) ? "High"   : "Low"
 
