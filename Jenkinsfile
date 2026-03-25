@@ -12,6 +12,7 @@ pipeline {
         JIRA_API_TOKEN   = credentials('jira-api-token')  // add this in Jenkins credentials
     }
 
+
     stages {
 
     //     stage('Checkout Code') {
