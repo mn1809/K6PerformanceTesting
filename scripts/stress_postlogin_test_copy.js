@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
-
+import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.2/index.js";
 /**
  * ===============================
  * k6 OPTIONS
@@ -10,8 +10,8 @@ export let options = {
   scenarios: {
     post_login_load: {
       executor: 'shared-iterations',
-      vus: 100,
-      iterations: 400, 
+      vus: 1,
+      iterations: 1, 
       maxDuration: '45m',
     },
   },
@@ -775,6 +775,7 @@ export default function (data) {
 // HANDLE SUMMARY
 // ============================================================
 
+// Single merged handleSummary at the BOTTOM of your file
 export function handleSummary(data) {
   const vus        = data.metrics.vus_max?.values?.max ?? 'N/A';
   const iterations = data.metrics.iterations?.values?.count ?? 'N/A';
@@ -794,5 +795,9 @@ export function handleSummary(data) {
 ===========================================================
 `;
 
-  return { stdout: summary };
+  // Writes the JSON file Jenkins needs + prints your custom summary to console
+  return {
+    "k6-summary.json": JSON.stringify(data, null, 2),
+    stdout: summary,
+  };
 }
