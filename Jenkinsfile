@@ -7,7 +7,7 @@ pipeline {
         // ── Jira Config ── Fill these in ──────────────────────
         JIRA_BASE_URL    = "https://milesmasterclass.atlassian.net"
         JIRA_PROJECT_KEY = "MAS"
-        JIRA_ISSUE_TYPE  = "Bug"
+        JIRA_ISSUE_TYPE  = "Task"
         JIRA_USER_EMAIL  = "manoj.hr@mileseducation.com"
         JIRA_API_TOKEN   = credentials('jira-api-token')  // add this in Jenkins credentials
     }
@@ -99,6 +99,7 @@ ${consoleLog}"""
                             description: description,
                             issuetype  : [name: env.JIRA_ISSUE_TYPE],
                             priority   : [name: priority],
+                            assignee   : [accountId: "712020:77c909ec-cc75-43dc-b5af-c154028517b0"],
                             labels     : ["k6", "performance", "automated", "daily-run"]
                         ]
                     ])
