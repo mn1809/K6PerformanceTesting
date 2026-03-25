@@ -32,6 +32,7 @@ pipeline {
             steps {
                 // Runs K6 and saves console log + summary JSON
                 //bat "k6 run ${K6_SCRIPT} 2>&1 | tee k6-console.log"
+
         // ✅ REPLACE with this (Windows compatible)
                 bat "k6 run ${K6_SCRIPT} > k6-console.log 2>&1"
                 bat "type k6-console.log"  // prints the log to Jenkins console
@@ -57,7 +58,7 @@ pipeline {
                     def vus         = metrics?.vus_max?.values?.max                ?: "N/A"
 
                     // ── 3. Determine pass/fail & priority ────────────────
-                    def errorPct    = (errorRate * 100).round(2)
+                    def errorPct = Math.round(errorRate * 10000) / 100.0
                     def status      = (errorRate > 0.05) ? "FAILED" : "PASSED"
                     def priority    = (errorRate > 0.05) ? "High"   : "Low"
 
