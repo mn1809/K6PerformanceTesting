@@ -7,7 +7,7 @@ pipeline {
         // ── Jira Config ── Fill these in ──────────────────────
         JIRA_BASE_URL    = "https://milesmasterclass.atlassian.net"
         JIRA_PROJECT_KEY = "MAS"
-        JIRA_ISSUE_TYPE  = "DONE"
+        JIRA_ISSUE_TYPE  = "Task"
         JIRA_USER_EMAIL  = "manoj.hr@mileseducation.com"
         JIRA_API_TOKEN   = credentials('jira-api-token')  // add this in Jenkins credentials
     }
