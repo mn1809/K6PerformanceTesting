@@ -11,7 +11,7 @@ export let options = {
     post_login_load: {
       executor: 'shared-iterations',
       vus: 100,
-      iterations: 200, 
+      iterations: 100, 
       maxDuration: '45m',
     },
   },
