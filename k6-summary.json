@@ -1,229 +1,23 @@
 {
-  "options": {
-    "summaryTrendStats": [
-      "avg",
-      "min",
-      "med",
-      "max",
-      "p(90)",
-      "p(95)"
-    ],
-    "summaryTimeUnit": "",
-    "noColor": false
-  },
   "state": {
-    "isStdOutTTY": true,
     "isStdErrTTY": true,
-    "testRunDurationMs": 28285.184
+    "testRunDurationMs": 29098.683,
+    "isStdOutTTY": true
   },
   "metrics": {
-    "vus_max": {
-      "contains": "default",
-      "values": {
-        "max": 1,
-        "value": 1,
-        "min": 1
-      },
-      "type": "gauge"
-    },
     "http_req_waiting": {
-      "contains": "time",
-      "values": {
-        "med": 579.469,
-        "max": 4382.96,
-        "p(90)": 1282.4708000000003,
-        "p(95)": 1906.0459999999994,
-        "avg": 865.117896551724,
-        "min": 362.957
-      },
-      "type": "trend"
-    },
-    "data_sent": {
-      "type": "counter",
-      "contains": "data",
-      "values": {
-        "count": 14117,
-        "rate": 499.0952153608051
-      }
-    },
-    "checks{step:Course Library Nano2 API}": {
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "passes": 0,
-        "fails": 0,
-        "rate": 0
-      },
-      "thresholds": {
-        "rate>0.95": {
-          "ok": true
-        }
-      }
-    },
-    "http_req_failed": {
-      "values": {
-        "passes": 0,
-        "fails": 29,
-        "rate": 0
-      },
-      "type": "rate",
-      "contains": "default"
-    },
-    "http_reqs": {
-      "contains": "default",
-      "values": {
-        "rate": 1.0252717465087022,
-        "count": 29
-      },
-      "type": "counter"
-    },
-    "http_req_connecting": {
       "type": "trend",
       "contains": "time",
       "values": {
-        "max": 41.699,
-        "p(90)": 0,
-        "p(95)": 6.503999999999986,
-        "avg": 1.8116896551724138,
-        "min": 0,
-        "med": 0
+        "min": 400.35,
+        "med": 612.604,
+        "max": 4738.926,
+        "p(90)": 1047.4148,
+        "p(95)": 1710.9655999999986,
+        "avg": 858.5637241379308
       }
-    },
-    "http_req_sending": {
-      "contains": "time",
-      "values": {
-        "max": 1.317,
-        "p(90)": 0.24800000000000003,
-        "p(95)": 0.3467999999999999,
-        "avg": 0.19720689655172421,
-        "min": 0.053,
-        "med": 0.156
-      },
-      "type": "trend"
-    },
-    "iteration_duration": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "max": 21710.099042,
-        "p(90)": 21710.099042,
-        "p(95)": 21710.099042,
-        "avg": 21710.099042,
-        "min": 21710.099042,
-        "med": 21710.099042
-      }
-    },
-    "http_req_blocked": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "p(95)": 48.8593999999999,
-        "avg": 5.888620689655178,
-        "min": 0,
-        "med": 0.001,
-        "max": 89.311,
-        "p(90)": 0.002
-      }
-    },
-    "checks{step:Course Library Podcast1 API}": {
-      "values": {
-        "rate": 0,
-        "passes": 0,
-        "fails": 0
-      },
-      "thresholds": {
-        "rate>0.95": {
-          "ok": true
-        }
-      },
-      "type": "rate",
-      "contains": "default"
-    },
-    "http_req_duration{expected_response:true}": {
-      "values": {
-        "p(95)": 1993.9976,
-        "avg": 926.0335862068968,
-        "min": 363.343,
-        "med": 632.903,
-        "max": 4383.563,
-        "p(90)": 1422.9596000000004
-      },
-      "type": "trend",
-      "contains": "time"
     },
     "checks{step:Course Library Podcast2 API}": {
-      "values": {
-        "fails": 0,
-        "rate": 0,
-        "passes": 0
-      },
-      "thresholds": {
-        "rate>0.95": {
-          "ok": true
-        }
-      },
-      "type": "rate",
-      "contains": "default"
-    },
-    "checks{step:My Orders API}": {
-      "thresholds": {
-        "rate>0.99": {
-          "ok": true
-        }
-      },
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "rate": 0,
-        "passes": 0,
-        "fails": 0
-      }
-    },
-    "http_req_tls_handshaking": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 2.2099310344827585,
-        "min": 0,
-        "med": 0,
-        "max": 39.252,
-        "p(90)": 0,
-        "p(95)": 14.901599999999968
-      }
-    },
-    "vus": {
-      "type": "gauge",
-      "contains": "default",
-      "values": {
-        "value": 1,
-        "min": 0,
-        "max": 1
-      }
-    },
-    "checks": {
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "rate": 1,
-        "passes": 101,
-        "fails": 0
-      }
-    },
-    "checks{step:Profile API}": {
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "rate": 0,
-        "passes": 0,
-        "fails": 0
-      },
-      "thresholds": {
-        "rate>0.99": {
-          "ok": true
-        }
-      }
-    },
-    "checks{step:Course Library MM2 API}": {
       "type": "rate",
       "contains": "default",
       "values": {
@@ -235,18 +29,6 @@
         "rate>0.95": {
           "ok": true
         }
-      }
-    },
-    "http_req_receiving": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "p(90)": 210.084,
-        "p(95)": 219.00439999999998,
-        "avg": 60.718482758620674,
-        "min": 0.061,
-        "med": 1.466,
-        "max": 312.173
       }
     },
     "checks{step:Course Library Nano1 API}": {
@@ -263,61 +45,267 @@
         }
       }
     },
-    "http_req_duration": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "max": 4383.563,
-        "p(90)": 1422.9596000000004,
-        "p(95)": 1993.9976,
-        "avg": 926.0335862068968,
-        "min": 363.343,
-        "med": 632.903
-      }
-    },
-    "data_received": {
-      "values": {
-        "count": 2667635,
-        "rate": 94312.09639647385
-      },
-      "type": "counter",
-      "contains": "data"
-    },
     "iterations": {
       "type": "counter",
       "contains": "default",
       "values": {
-        "count": 1,
-        "rate": 0.03535419815547249
+        "rate": 0.034365816487296,
+        "count": 1
+      }
+    },
+    "vus_max": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "max": 1,
+        "value": 1,
+        "min": 1
+      }
+    },
+    "vus": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 1,
+        "min": 0,
+        "max": 1
+      }
+    },
+    "http_req_connecting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 0.8079310344827586,
+        "min": 0,
+        "med": 0,
+        "max": 11.816,
+        "p(90)": 0,
+        "p(95)": 6.968399999999986
+      }
+    },
+    "http_req_receiving": {
+      "contains": "time",
+      "values": {
+        "avg": 95.22786206896552,
+        "min": 0.159,
+        "med": 1.793,
+        "max": 546.13,
+        "p(90)": 382.3104000000001,
+        "p(95)": 476.5806
+      },
+      "type": "trend"
+    },
+    "checks{step:My Orders API}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 0
+      },
+      "thresholds": {
+        "rate>0.99": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_blocked": {
+      "contains": "time",
+      "values": {
+        "p(90)": 0.002,
+        "p(95)": 20.251399999999954,
+        "avg": 3.0511724137931058,
+        "min": 0,
+        "med": 0.001,
+        "max": 54.704
+      },
+      "type": "trend"
+    },
+    "checks{step:Course Library Podcast1 API}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "fails": 0,
+        "rate": 0,
+        "passes": 0
+      },
+      "thresholds": {
+        "rate>0.95": {
+          "ok": true
+        }
+      }
+    },
+    "http_req_failed": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 29
+      }
+    },
+    "data_received": {
+      "contains": "data",
+      "values": {
+        "rate": 91072.19732246989,
+        "count": 2650081
+      },
+      "type": "counter"
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 13.117799999999972,
+        "avg": 1.539206896551724,
+        "min": 0,
+        "med": 0,
+        "max": 22.774,
+        "p(90)": 0
+      }
+    },
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 1465.6670000000001,
+        "p(95)": 1901.2019999999993,
+        "avg": 954.0040344827586,
+        "min": 400.714,
+        "med": 646.464,
+        "max": 4739.71
+      }
+    },
+    "http_req_sending": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 0.204,
+        "max": 0.527,
+        "p(90)": 0.3042,
+        "p(95)": 0.35079999999999995,
+        "avg": 0.21244827586206896,
+        "min": 0.039
+      }
+    },
+    "checks{step:Course Library Nano2 API}": {
+      "thresholds": {
+        "rate>0.95": {
+          "ok": true
+        }
+      },
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "fails": 0,
+        "rate": 0,
+        "passes": 0
+      }
+    },
+    "checks{step:Profile API}": {
+      "contains": "default",
+      "values": {
+        "passes": 0,
+        "fails": 0,
+        "rate": 0
+      },
+      "thresholds": {
+        "rate>0.99": {
+          "ok": true
+        }
+      },
+      "type": "rate"
+    },
+    "checks{step:Course Library MM2 API}": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 0
+      },
+      "thresholds": {
+        "rate>0.95": {
+          "ok": true
+        }
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "rate": 0.9966086781315842,
+        "count": 29
+      }
+    },
+    "data_sent": {
+      "values": {
+        "count": 16231,
+        "rate": 557.7915674053014
+      },
+      "type": "counter",
+      "contains": "data"
+    },
+    "checks": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 1,
+        "passes": 101,
+        "fails": 0
+      }
+    },
+    "http_req_duration{expected_response:true}": {
+      "values": {
+        "med": 646.464,
+        "max": 4739.71,
+        "p(90)": 1465.6670000000001,
+        "p(95)": 1901.2019999999993,
+        "avg": 954.0040344827586,
+        "min": 400.714
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "iteration_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 22146.68425,
+        "min": 22146.68425,
+        "med": 22146.68425,
+        "max": 22146.68425,
+        "p(90)": 22146.68425,
+        "p(95)": 22146.68425
       }
     }
   },
   "setup_data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEyNjcsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZF9hdCI6IjIwMjUtMTAtMTZUMDc6MDQ6NTkuNzc0WiIsInVwZGF0ZWRfYXQiOiIyMDI2LTAzLTE5VDE3OjE3OjMwLjM0MloiLCJ1c2VySWQiOiJmN2E1ZTUyMC0zOWM2LTQzYjYtYTYzOS1iNWE4ZWFhMDMyOWEiLCJmaXJzdE5hbWUiOiJtYW51IiwibGFzdE5hbWUiOiJociIsInJvbGUiOm51bGwsInVzZXJOYW1lIjpudWxsLCJlbWFpbCI6Im1hbm9qLmhyQG1pbGVzZWR1Y2F0aW9uLmNvbSIsInBob25lIjoiMjM1Njg5NzQxOSIsImNvdW50cnlDb2RlIjoiKzkxIiwibWZhRW5hYmxlZCI6ZmFsc2UsIm1mYVR5cGUiOm51bGwsIm1mYVNlY3JldCI6bnVsbCwidXNlclR5cGUiOjAsImxhc3RMb2dpbiI6bnVsbCwic2Vzc2lvbiI6NDY2NDY3LCJpYXQiOjE3NzQ0MTYwNTUsImV4cCI6MTc3NDQxOTY1NX0.8ADzMZgdvXIG-EBrGZ6iBgaOJEKeD1gfWkOREjirdpQ"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzEyNjcsInN0YXR1cyI6dHJ1ZSwiY3JlYXRlZF9hdCI6IjIwMjUtMTAtMTZUMDc6MDQ6NTkuNzc0WiIsInVwZGF0ZWRfYXQiOiIyMDI2LTAzLTI3VDEzOjA0OjE2LjMyNFoiLCJ1c2VySWQiOiJmN2E1ZTUyMC0zOWM2LTQzYjYtYTYzOS1iNWE4ZWFhMDMyOWEiLCJmaXJzdE5hbWUiOiJtYW5vaiIsImxhc3ROYW1lIjoiaHIiLCJyb2xlIjpudWxsLCJ1c2VyTmFtZSI6bnVsbCwiZW1haWwiOiJtYW5vai5ockBtaWxlc2VkdWNhdGlvbi5jb20iLCJwaG9uZSI6IjIzNTY4OTUyODciLCJjb3VudHJ5Q29kZSI6IisxIiwibWZhRW5hYmxlZCI6ZmFsc2UsIm1mYVR5cGUiOm51bGwsIm1mYVNlY3JldCI6bnVsbCwidXNlclR5cGUiOjAsImxhc3RMb2dpbiI6bnVsbCwic2Vzc2lvbiI6NDczMjg2LCJpYXQiOjE3NzQ4MDI2NjgsImV4cCI6MTc3NDgwNjI2OH0.GvY6lA3lOSX54pdC2-D1KtuMPm0rNS-LSsoHZDypBCo"
   },
   "root_group": {
     "groups": [],
     "checks": [
         {
+          "name": "Profile status 200",
           "path": "::Profile status 200",
           "id": "d596ae36a5651e4910e571b8d3e282f1",
-          "passes": 1,
-          "fails": 0,
-          "name": "Profile status 200"
-        },
-        {
-          "name": "Profile status_code true",
-          "path": "::Profile status_code true",
-          "id": "43e4fd1795d0c7ff2d5d5539c8dea820",
           "passes": 1,
           "fails": 0
         },
         {
+          "fails": 0,
+          "name": "Profile status_code true",
+          "path": "::Profile status_code true",
+          "id": "43e4fd1795d0c7ff2d5d5539c8dea820",
+          "passes": 1
+        },
+        {
+          "path": "::Related API status 200",
+          "id": "5f05a4027a5603db10a7696f69f4f5c3",
           "passes": 1,
           "fails": 0,
-          "name": "Related API status 200",
-          "path": "::Related API status 200",
-          "id": "5f05a4027a5603db10a7696f69f4f5c3"
+          "name": "Related API status 200"
         },
         {
           "name": "At least one related course title present",
@@ -327,25 +315,25 @@
           "fails": 0
         },
         {
-          "path": "::Course Details status 200",
-          "id": "80048728b1565ad187a8f1be628eb31c",
           "passes": 1,
           "fails": 0,
-          "name": "Course Details status 200"
+          "name": "Course Details status 200",
+          "path": "::Course Details status 200",
+          "id": "80048728b1565ad187a8f1be628eb31c"
         },
         {
+          "fails": 0,
           "name": "Course title present",
           "path": "::Course title present",
           "id": "f7f4f3e1ea9f6c209deef811521f8d2a",
-          "passes": 1,
-          "fails": 0
+          "passes": 1
         },
         {
-          "path": "::status_code is 200",
-          "id": "51058a8c1dccf76af4d504ab9c50eabc",
           "passes": 1,
           "fails": 0,
-          "name": "status_code is 200"
+          "name": "status_code is 200",
+          "path": "::status_code is 200",
+          "id": "51058a8c1dccf76af4d504ab9c50eabc"
         },
         {
           "name": "Complimentary API status 200",
@@ -355,18 +343,18 @@
           "fails": 0
         },
         {
-          "name": "First course title exists",
-          "path": "::First course title exists",
           "id": "ef41c3e6b222a13551073b63991e8b25",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "First course title exists",
+          "path": "::First course title exists"
         },
         {
-          "name": "Get Track 1 HTTP 200",
           "path": "::Get Track 1 HTTP 200",
           "id": "4fcafc95ff034f59b4b3bf1e81b78ad0",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "Get Track 1 HTTP 200"
         },
         {
           "name": "Track 1 status_code 200",
@@ -376,25 +364,25 @@
           "fails": 0
         },
         {
-          "passes": 1,
           "fails": 0,
           "name": "Track 1 title exists",
           "path": "::Track 1 title exists",
-          "id": "a14866b20342e1248e0404063d4b0297"
+          "id": "a14866b20342e1248e0404063d4b0297",
+          "passes": 1
         },
         {
+          "name": "Get Track 2 HTTP 200",
+          "path": "::Get Track 2 HTTP 200",
           "id": "2609dee2a4675ee0a5a7c94185684d88",
           "passes": 1,
-          "fails": 0,
-          "name": "Get Track 2 HTTP 200",
-          "path": "::Get Track 2 HTTP 200"
+          "fails": 0
         },
         {
-          "passes": 1,
-          "fails": 0,
           "name": "Track 2 status_code 200",
           "path": "::Track 2 status_code 200",
-          "id": "28e18c3595dc2cd375c14aebe7626f43"
+          "id": "28e18c3595dc2cd375c14aebe7626f43",
+          "passes": 1,
+          "fails": 0
         },
         {
           "name": "Track 2 title exists",
@@ -404,11 +392,11 @@
           "fails": 0
         },
         {
+          "name": "Get Track 3 HTTP 200",
+          "path": "::Get Track 3 HTTP 200",
           "id": "dd4fb21556e757aeaf392efa8a7c9959",
           "passes": 1,
-          "fails": 0,
-          "name": "Get Track 3 HTTP 200",
-          "path": "::Get Track 3 HTTP 200"
+          "fails": 0
         },
         {
           "name": "Track 3 status_code 200",
@@ -425,46 +413,46 @@
           "fails": 0
         },
         {
-          "id": "e73e30db5cb9496c79817badb7877ce4",
-          "passes": 1,
-          "fails": 0,
           "name": "Subscription API HTTP 200",
-          "path": "::Subscription API HTTP 200"
-        },
-        {
-          "fails": 0,
-          "name": "Subscription status_code 200",
-          "path": "::Subscription status_code 200",
-          "id": "783e1d0ea06be4fb2cfd09a6709e8b0d",
-          "passes": 1
-        },
-        {
-          "passes": 1,
-          "fails": 0,
-          "name": "Subscription list is not empty",
-          "path": "::Subscription list is not empty",
-          "id": "817a640b27c21af9a01d639b003a8eb3"
-        },
-        {
-          "name": "All plans have valid subscription_name",
-          "path": "::All plans have valid subscription_name",
-          "id": "568b02fddf3d3bdc139f8e95c6aee534",
+          "path": "::Subscription API HTTP 200",
+          "id": "e73e30db5cb9496c79817badb7877ce4",
           "passes": 1,
           "fails": 0
         },
         {
-          "id": "54f8978534b9d9657da576eb3f258301",
+          "path": "::Subscription status_code 200",
+          "id": "783e1d0ea06be4fb2cfd09a6709e8b0d",
+          "passes": 1,
+          "fails": 0,
+          "name": "Subscription status_code 200"
+        },
+        {
+          "name": "Subscription list is not empty",
+          "path": "::Subscription list is not empty",
+          "id": "817a640b27c21af9a01d639b003a8eb3",
+          "passes": 1,
+          "fails": 0
+        },
+        {
+          "path": "::All plans have valid subscription_name",
+          "id": "568b02fddf3d3bdc139f8e95c6aee534",
+          "passes": 1,
+          "fails": 0,
+          "name": "All plans have valid subscription_name"
+        },
+        {
           "passes": 1,
           "fails": 0,
           "name": "Podcast Track 6 status 200",
-          "path": "::Podcast Track 6 status 200"
+          "path": "::Podcast Track 6 status 200",
+          "id": "54f8978534b9d9657da576eb3f258301"
         },
         {
-          "fails": 0,
-          "name": "Podcast Track 6 title exists",
           "path": "::Podcast Track 6 title exists",
           "id": "e21001a13d5ce36ea0137ec9ff2429f8",
-          "passes": 1
+          "passes": 1,
+          "fails": 0,
+          "name": "Podcast Track 6 title exists"
         },
         {
           "passes": 1,
@@ -474,18 +462,18 @@
           "id": "4335a9c0e279f9f24b9a3eeeeb385c10"
         },
         {
-          "name": "Podcast Track 7 title exists",
-          "path": "::Podcast Track 7 title exists",
           "id": "7ff6f495bcba36a4cd4d540b4d43b5c3",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "Podcast Track 7 title exists",
+          "path": "::Podcast Track 7 title exists"
         },
         {
-          "name": "Podcast Track 8 status 200",
-          "path": "::Podcast Track 8 status 200",
           "id": "2153728f3dabea82696b614d7e17ac04",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "Podcast Track 8 status 200",
+          "path": "::Podcast Track 8 status 200"
         },
         {
           "name": "Podcast Track 8 title exists",
@@ -502,32 +490,32 @@
           "fails": 0
         },
         {
-          "name": "Podcast complimentary title exists",
-          "path": "::Podcast complimentary title exists",
           "id": "9852496890a0828276a5bf7afa15b8b4",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "Podcast complimentary title exists",
+          "path": "::Podcast complimentary title exists"
         },
         {
+          "passes": 1,
           "fails": 0,
           "name": "Essential Podcast API status 200",
           "path": "::Essential Podcast API status 200",
-          "id": "1bb961bdc76d0cf08ad26f2be096f7da",
-          "passes": 1
+          "id": "1bb961bdc76d0cf08ad26f2be096f7da"
         },
         {
+          "fails": 0,
           "name": "Essential podcast title exists",
           "path": "::Essential podcast title exists",
           "id": "27bc71a41d86269883421dc2265e06d1",
-          "passes": 1,
-          "fails": 0
+          "passes": 1
         },
         {
-          "name": "Nano Track 1 status 200",
-          "path": "::Nano Track 1 status 200",
           "id": "1b43ee0df68d61c5566e07f52240c279",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "Nano Track 1 status 200",
+          "path": "::Nano Track 1 status 200"
         },
         {
           "name": "Nano Track 1 title exists",
@@ -544,11 +532,11 @@
           "passes": 1
         },
         {
+          "fails": 0,
           "name": "Nano Track 2 title exists",
           "path": "::Nano Track 2 title exists",
           "id": "1bb000c7872da3a1b3aedf26b72d923e",
-          "passes": 1,
-          "fails": 0
+          "passes": 1
         },
         {
           "name": "Nano Track 3 status 200",
@@ -558,25 +546,25 @@
           "fails": 0
         },
         {
-          "fails": 0,
           "name": "Nano Track 3 title exists",
           "path": "::Nano Track 3 title exists",
           "id": "e77a2645997f335f8b4d95097538105e",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         },
         {
-          "passes": 1,
           "fails": 0,
           "name": "Nano Learning Page 1 status 200",
           "path": "::Nano Learning Page 1 status 200",
-          "id": "4c793e06f23ca7a42c67b78a71b8241c"
+          "id": "4c793e06f23ca7a42c67b78a71b8241c",
+          "passes": 1
         },
         {
-          "path": "::Nano Learning Page 1 status_code 200",
           "id": "484042b1994296be69323f7f0442829a",
           "passes": 1,
           "fails": 0,
-          "name": "Nano Learning Page 1 status_code 200"
+          "name": "Nano Learning Page 1 status_code 200",
+          "path": "::Nano Learning Page 1 status_code 200"
         },
         {
           "name": "Nano Learning Page 1 data not empty",
@@ -607,25 +595,25 @@
           "fails": 0
         },
         {
-          "id": "2b309767d3e5e4c01b9847d512fcd453",
-          "passes": 1,
-          "fails": 0,
           "name": "Nano Learning Page 2 data not empty",
-          "path": "::Nano Learning Page 2 data not empty"
-        },
-        {
-          "name": "Nano Learning Page 2 title exists",
-          "path": "::Nano Learning Page 2 title exists",
-          "id": "e19498b4acc9cb16bc0f25403fb5f9dc",
+          "path": "::Nano Learning Page 2 data not empty",
+          "id": "2b309767d3e5e4c01b9847d512fcd453",
           "passes": 1,
           "fails": 0
         },
         {
-          "id": "ad317cafb370a442bbeb0eb4d335beae",
+          "path": "::Nano Learning Page 2 title exists",
+          "id": "e19498b4acc9cb16bc0f25403fb5f9dc",
           "passes": 1,
           "fails": 0,
+          "name": "Nano Learning Page 2 title exists"
+        },
+        {
           "name": "Nano Learning Page 3 status 200",
-          "path": "::Nano Learning Page 3 status 200"
+          "path": "::Nano Learning Page 3 status 200",
+          "id": "ad317cafb370a442bbeb0eb4d335beae",
+          "passes": 1,
+          "fails": 0
         },
         {
           "name": "Nano Learning Page 3 status_code 200",
@@ -635,32 +623,32 @@
           "fails": 0
         },
         {
+          "fails": 0,
+          "name": "Nano Learning Page 3 data not empty",
           "path": "::Nano Learning Page 3 data not empty",
           "id": "64cc2dbacc988818b62c4b55959a4a32",
-          "passes": 1,
-          "fails": 0,
-          "name": "Nano Learning Page 3 data not empty"
+          "passes": 1
         },
         {
-          "id": "69c020df9c2237cc4915a6031f84b77c",
           "passes": 1,
           "fails": 0,
           "name": "Nano Learning Page 3 title exists",
-          "path": "::Nano Learning Page 3 title exists"
+          "path": "::Nano Learning Page 3 title exists",
+          "id": "69c020df9c2237cc4915a6031f84b77c"
         },
         {
+          "name": "User Badges status 200",
+          "path": "::User Badges status 200",
           "id": "bf20e4028c82041127e223706fd5fbe1",
           "passes": 1,
-          "fails": 0,
-          "name": "User Badges status 200",
-          "path": "::User Badges status 200"
+          "fails": 0
         },
         {
-          "fails": 0,
           "name": "Badges list not empty",
           "path": "::Badges list not empty",
           "id": "beb570deceb1d50efccde08640b1c0e4",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         },
         {
           "passes": 1,
@@ -670,18 +658,18 @@
           "id": "93d4abfcdbdafc7217419f516f836359"
         },
         {
+          "fails": 0,
           "name": "Level name exists [0]",
           "path": "::Level name exists [0]",
           "id": "e79606e31e88010cf46d0fec6f3dab0e",
-          "passes": 1,
-          "fails": 0
+          "passes": 1
         },
         {
+          "name": "Level rank exists [0]",
+          "path": "::Level rank exists [0]",
           "id": "85b37061a4619b22de63e95b74ac94c9",
           "passes": 1,
-          "fails": 0,
-          "name": "Level rank exists [0]",
-          "path": "::Level rank exists [0]"
+          "fails": 0
         },
         {
           "passes": 1,
@@ -691,60 +679,60 @@
           "id": "b462714e349b03c48c68d879bc4b7e68"
         },
         {
-          "name": "Badge name exists [1]",
           "path": "::Badge name exists [1]",
           "id": "57bff48aaca02026b54c17cda4cd5fdf",
           "passes": 1,
-          "fails": 0
+          "fails": 0,
+          "name": "Badge name exists [1]"
         },
         {
+          "fails": 0,
           "name": "Level name exists [1]",
           "path": "::Level name exists [1]",
           "id": "eb737eb239e39503a435c1d8d10be686",
-          "passes": 1,
-          "fails": 0
+          "passes": 1
         },
         {
-          "id": "122ad9097451b70c34d23c6452eff169",
           "passes": 1,
           "fails": 0,
           "name": "Level rank exists [1]",
-          "path": "::Level rank exists [1]"
+          "path": "::Level rank exists [1]",
+          "id": "122ad9097451b70c34d23c6452eff169"
         },
         {
+          "name": "Required credits exists [1]",
           "path": "::Required credits exists [1]",
           "id": "de4207cf9e2b5b0076ceefbad92e9a36",
           "passes": 1,
+          "fails": 0
+        },
+        {
+          "path": "::Badge name exists [2]",
+          "id": "beb5c68f7c2c14ab31d9f80ea6ad17ab",
+          "passes": 1,
           "fails": 0,
-          "name": "Required credits exists [1]"
+          "name": "Badge name exists [2]"
         },
         {
           "passes": 1,
           "fails": 0,
-          "name": "Badge name exists [2]",
-          "path": "::Badge name exists [2]",
-          "id": "beb5c68f7c2c14ab31d9f80ea6ad17ab"
-        },
-        {
           "name": "Level name exists [2]",
           "path": "::Level name exists [2]",
-          "id": "a382cbb55df78518813936a1e86d5bf3",
-          "passes": 1,
-          "fails": 0
+          "id": "a382cbb55df78518813936a1e86d5bf3"
         },
         {
-          "name": "Level rank exists [2]",
-          "path": "::Level rank exists [2]",
-          "id": "7c5b55d6889ff4f7d19c3f37f6a7445e",
-          "passes": 1,
-          "fails": 0
-        },
-        {
-          "id": "65a7870781942fe939bde6fb0648076c",
           "passes": 1,
           "fails": 0,
+          "name": "Level rank exists [2]",
+          "path": "::Level rank exists [2]",
+          "id": "7c5b55d6889ff4f7d19c3f37f6a7445e"
+        },
+        {
           "name": "Required credits exists [2]",
-          "path": "::Required credits exists [2]"
+          "path": "::Required credits exists [2]",
+          "id": "65a7870781942fe939bde6fb0648076c",
+          "passes": 1,
+          "fails": 0
         },
         {
           "name": "Masterclass Library 1 status 200",
@@ -768,25 +756,25 @@
           "fails": 0
         },
         {
+          "name": "Masterclass Library 1 title exists",
           "path": "::Masterclass Library 1 title exists",
           "id": "54e2a516159402843ed758bf614c5d61",
           "passes": 1,
-          "fails": 0,
-          "name": "Masterclass Library 1 title exists"
+          "fails": 0
         },
         {
-          "fails": 0,
-          "name": "Masterclass Library 2 status 200",
           "path": "::Masterclass Library 2 status 200",
           "id": "cc1b51e05a91ec4c2a9a5c1ef48dd43a",
-          "passes": 1
+          "passes": 1,
+          "fails": 0,
+          "name": "Masterclass Library 2 status 200"
         },
         {
-          "fails": 0,
           "name": "Masterclass Library 2 status_code 200",
           "path": "::Masterclass Library 2 status_code 200",
           "id": "f72c28a867777a71300f3c827b08b885",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         },
         {
           "name": "Masterclass Library 2 data not empty",
@@ -803,25 +791,25 @@
           "fails": 0
         },
         {
-          "fails": 0,
           "name": "Podcast Library 1 status 200",
           "path": "::Podcast Library 1 status 200",
           "id": "d3e20828773ca2acc93f69e2d62b4e00",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         },
         {
+          "passes": 1,
           "fails": 0,
           "name": "Podcast Library 1 status_code 200",
           "path": "::Podcast Library 1 status_code 200",
-          "id": "2650e3380420cf708f34bd045b0f5e9e",
-          "passes": 1
+          "id": "2650e3380420cf708f34bd045b0f5e9e"
         },
         {
+          "id": "127537ade31a99c8bcdc04514aec9492",
+          "passes": 1,
           "fails": 0,
           "name": "Podcast Library 1 data not empty",
-          "path": "::Podcast Library 1 data not empty",
-          "id": "127537ade31a99c8bcdc04514aec9492",
-          "passes": 1
+          "path": "::Podcast Library 1 data not empty"
         },
         {
           "passes": 1,
@@ -845,18 +833,18 @@
           "fails": 0
         },
         {
-          "path": "::Podcast Library 2 data not empty",
-          "id": "3ad042742df7ef4834a2b3a30208f7a8",
           "passes": 1,
           "fails": 0,
-          "name": "Podcast Library 2 data not empty"
+          "name": "Podcast Library 2 data not empty",
+          "path": "::Podcast Library 2 data not empty",
+          "id": "3ad042742df7ef4834a2b3a30208f7a8"
         },
         {
+          "fails": 0,
           "name": "Podcast Library 2 title exists",
           "path": "::Podcast Library 2 title exists",
           "id": "9cbd52aed73345c55cd8b9b7c4b69df8",
-          "passes": 1,
-          "fails": 0
+          "passes": 1
         },
         {
           "name": "Nano Library 1 status 200",
@@ -866,18 +854,18 @@
           "fails": 0
         },
         {
+          "path": "::Nano Library 1 status_code 200",
           "id": "06dfa195f827541426243f0a5d78f7bf",
           "passes": 1,
           "fails": 0,
-          "name": "Nano Library 1 status_code 200",
-          "path": "::Nano Library 1 status_code 200"
+          "name": "Nano Library 1 status_code 200"
         },
         {
-          "fails": 0,
           "name": "Nano Library 1 data not empty",
           "path": "::Nano Library 1 data not empty",
           "id": "364ef57671922747095b093cb4e85d09",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         },
         {
           "name": "Nano Library 1 title exists",
@@ -894,18 +882,18 @@
           "fails": 0
         },
         {
-          "id": "d5f3f6da8b79a2cd7b8bbf5e0d6eecb2",
           "passes": 1,
           "fails": 0,
           "name": "Nano Library 2 status_code 200",
-          "path": "::Nano Library 2 status_code 200"
+          "path": "::Nano Library 2 status_code 200",
+          "id": "d5f3f6da8b79a2cd7b8bbf5e0d6eecb2"
         },
         {
-          "passes": 1,
           "fails": 0,
           "name": "Nano Library 2 data not empty",
           "path": "::Nano Library 2 data not empty",
-          "id": "fb0d3f07ad53ab1767923055fe00a9c2"
+          "id": "fb0d3f07ad53ab1767923055fe00a9c2",
+          "passes": 1
         },
         {
           "name": "Nano Library 2 title exists",
@@ -915,11 +903,11 @@
           "fails": 0
         },
         {
-          "fails": 0,
           "name": "My Orders status 200",
           "path": "::My Orders status 200",
           "id": "1fd2486b8bd8f6269ff6dcd32043707f",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         },
         {
           "name": "My Orders status_code true",
@@ -936,11 +924,11 @@
           "fails": 0
         },
         {
+          "name": "Order ID valid",
+          "path": "::Order ID valid",
           "id": "e925e9260aeac15246fae23bea11e052",
           "passes": 3,
-          "fails": 0,
-          "name": "Order ID valid",
-          "path": "::Order ID valid"
+          "fails": 0
         },
         {
           "name": "Subscription name valid",
@@ -950,29 +938,41 @@
           "fails": 0
         },
         {
-          "id": "2bd10d35393dc9b8ae7b2339260dad39",
-          "passes": 2,
           "fails": 0,
           "name": "Plan duration valid",
-          "path": "::Plan duration valid"
+          "path": "::Plan duration valid",
+          "id": "2bd10d35393dc9b8ae7b2339260dad39",
+          "passes": 2
         },
         {
+          "name": "Discount type valid",
+          "path": "::Discount type valid",
           "id": "7cf30792f8c551532371788a93285748",
           "passes": 2,
-          "fails": 0,
-          "name": "Discount type valid",
-          "path": "::Discount type valid"
+          "fails": 0
         },
         {
-          "fails": 0,
           "name": "At least one subscription exists",
           "path": "::At least one subscription exists",
           "id": "204374b9f8f7b666f60c12c0c4ef77ca",
-          "passes": 1
+          "passes": 1,
+          "fails": 0
         }
       ],
     "name": "",
     "path": "",
     "id": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "options": {
+    "summaryTrendStats": [
+      "avg",
+      "min",
+      "med",
+      "max",
+      "p(90)",
+      "p(95)"
+    ],
+    "summaryTimeUnit": "",
+    "noColor": false
   }
 }
