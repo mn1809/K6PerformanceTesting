@@ -60,8 +60,8 @@ pipeline {
                     // ── 3. Determine pass/fail & priority ────────────────
                     //def errorPct = Math.round(errorRate * 10000) / 100.0
                     def errorPct = String.format("%.2f", (errorRate * 100) as Double)
-                    def status      = (errorRate > 0.40) ? "FAILED" : "PASSED"
-                    def priority    = (errorRate > 0.40) ? "High"   : "Low"
+                    def status      = (errorRate > 0.30) ? "FAILED" : "PASSED"
+                    def priority    = (errorRate > 0.30) ? "High"   : "Low"
 
                     // ── 4. Read console log ──────────────────────────────
                     def consoleLog  = readFile('k6-console.log')
