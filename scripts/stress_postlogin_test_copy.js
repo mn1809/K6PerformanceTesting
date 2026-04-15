@@ -1,6 +1,9 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.2/index.js";
+
+
+
 /**
  * ===============================
  * k6 OPTIONS
@@ -10,8 +13,8 @@ export let options = {
   scenarios: {
     post_login_load: {
       executor: 'shared-iterations',
-      vus: 100,
-      iterations: 400, 
+      vus: 10,
+      iterations: 10, 
       maxDuration: '45m',
     },
   },
@@ -144,6 +147,13 @@ function authHeaders(token) {
 // API FUNCTIONS
 // ============================================================
 
+
+
+/**
+ * ===============================
+ * Case 3: Profile API
+ * ===============================
+ */
 function profileAPI(data) {
   const res = http.get(`${BASE_URL}/api/user/myprofile/`, { headers: authHeaders(data.token) });
   return check(res, {
@@ -153,6 +163,12 @@ function profileAPI(data) {
   });
 }
 
+
+/**
+ * ===============================
+ * Case 4: Related Course API
+ * ===============================
+ */
 function relatedCourseAPI(data) {
   const start = Date.now();
   const res = http.post(
@@ -172,6 +188,12 @@ function relatedCourseAPI(data) {
   });
 }
 
+/**
+ * ===============================
+ * Case 5: Course Details API
+ * ===============================
+ */
+
 function courseDetailsPageAPI(data) {
   const start = Date.now();
   const res = http.get(`${BASE_URL}/api/masterclass/details/?id=128`, { headers: authHeaders(data.token) });
@@ -189,6 +211,11 @@ function courseDetailsPageAPI(data) {
   });
 }
 
+/**
+ * ===============================
+ * Case 6: Complimentary Courses API
+ * ===============================
+ */
 function complimentaryCourseAPI(data) {
   const start = Date.now();
   // ✅ FIX 4: Retry if data is empty
@@ -211,6 +238,12 @@ function complimentaryCourseAPI(data) {
   });
 }
 
+
+/**
+ * ===============================
+ * Masterclass Track 1
+ * ===============================
+ */
 function verifyTrack1API(data) {
   const start = Date.now();
   const res = http.post(
@@ -231,6 +264,11 @@ function verifyTrack1API(data) {
   });
 }
 
+/**
+ * ===============================
+ * Masterclass Track 2
+ * ===============================
+ */
 function verifyTrack2API(data) {
   const start = Date.now();
   const res = http.post(
@@ -251,6 +289,11 @@ function verifyTrack2API(data) {
   });
 }
 
+/**
+ * ===============================
+ * Masterclass Track 3
+ * ===============================
+ */
 function verifyTrack3API(data) {
   const start = Date.now();
   const res = http.post(
@@ -271,6 +314,13 @@ function verifyTrack3API(data) {
   });
 }
 
+
+
+/**
+ * ===============================
+ * Subscription / Plan Page API
+ * ===============================
+ */
 function verifyPlanPageAPI(data) {
   const start = Date.now();
   // ✅ FIX 5: Retry subscription API
@@ -297,6 +347,13 @@ function verifyPlanPageAPI(data) {
   });
 }
 
+
+
+/**
+ * ===============================
+ * Podcast Track 1 API
+ * ===============================
+ */
 function podcastTrack1API(data) {
   const start = Date.now();
   const res = http.get(
@@ -314,6 +371,12 @@ function podcastTrack1API(data) {
     'Podcast Track 6 title exists': () => title !== 'Title not found',
   });
 }
+
+/**
+ * ===============================
+ * Podcast Track 2 API
+ * ===============================
+ */
 
 function podcastTrack2API(data) {
   const start = Date.now();
@@ -333,6 +396,12 @@ function podcastTrack2API(data) {
   });
 }
 
+
+/**
+ * ===============================
+ * Podcast Track 3 API
+ * ===============================
+ */
 function podcastTrack3API(data) {
   const start = Date.now();
   const res = http.get(
@@ -351,6 +420,12 @@ function podcastTrack3API(data) {
   });
 }
 
+
+/**
+ * ===============================
+ * Complimentary Courses API- POdcast
+ * ===============================
+ */
 function complimentaryPodcastCourseAPI(data) {
   const start = Date.now();
   const res = http.get(
@@ -369,6 +444,12 @@ function complimentaryPodcastCourseAPI(data) {
   });
 }
 
+
+/**
+ * ===============================
+ * Essential Courses API- POdcast
+ * ===============================
+ */
 function EssentialPodcastCourseAPI(data) {
   const start = Date.now();
   const res = http.get(
@@ -386,6 +467,12 @@ function EssentialPodcastCourseAPI(data) {
     'Essential podcast title exists': () => title !== '❌ Title not found',
   });
 }
+
+/**
+ * ===============================
+ * Reels Page Track 1 API
+ * ===============================
+ */
 
 function nanoTrack1API(data) {
   const start = Date.now();
@@ -405,6 +492,11 @@ function nanoTrack1API(data) {
   });
 }
 
+/**
+ * ===============================
+ * Reels Page Track 2 API
+ * ===============================
+ */
 function nanoTrack2API(data) {
   const start = Date.now();
   const res = http.get(
@@ -423,6 +515,12 @@ function nanoTrack2API(data) {
   });
 }
 
+
+/**
+ * ===============================
+ * Reels Page Track 3 API
+ * ===============================
+ */
 // ✅ FIX 6: nanoTrack3API had wrong log labels ("Nano Track 2" instead of "Nano Track 3")
 function nanoTrack3API(data) {
   const start = Date.now();
@@ -442,6 +540,11 @@ function nanoTrack3API(data) {
   });
 }
 
+/**
+ * ===============================
+ * Reels Page 1 Explore page API
+ * ===============================
+ */
 function nanoLearningPage1API(data) {
   const start = Date.now();
   // ✅ FIX 7: Retry nano learning pages (they showed 10s→35s degradation in logs)
@@ -467,6 +570,11 @@ function nanoLearningPage1API(data) {
   return passed;
 }
 
+/**
+ * ===============================
+ * Reels Page 2 Explore page API
+ * ===============================
+ */
 function nanoLearningPage2API(data) {
   const start = Date.now();
   const res = withRetry(
@@ -491,6 +599,12 @@ function nanoLearningPage2API(data) {
   return passed;
 }
 
+
+/**
+ * ===============================
+ * Reels Page 3 Explore page API
+ * ===============================
+ */
 // ✅ FIX 8: nanoLearningPage3API was hitting page=2 instead of page=3 — CRITICAL BUG
 function nanoLearningPage3API(data) {
   const start = Date.now();
@@ -515,7 +629,11 @@ function nanoLearningPage3API(data) {
   console.log(`✔ Asserted Nano Learning Page 3 Title: ${title}`);
   return passed;
 }
-
+/**
+ * ===============================
+ * Caira Badge Page API
+ * ===============================
+ */
 function VerifyCPETrackAPI(data) {
   const res = http.get(`${BASE_URL}/api/user-badges/`, { headers: authHeaders(data.token) });
 
@@ -541,6 +659,11 @@ function VerifyCPETrackAPI(data) {
   return passed;
 }
 
+/**
+ * ===============================
+ * Course lib MM page 1 API
+ * ===============================
+ */
 // ✅ FIX 9: All library APIs now use withRetry to handle empty paginated responses under load
 
 function verifyCourseLibraryMM1API(data) {
@@ -564,6 +687,11 @@ function verifyCourseLibraryMM1API(data) {
   return passed;
 }
 
+/**
+ * ===============================
+ * Course lib MM page 2 API
+ * ===============================
+ */
 function verifyCourseLibraryMM2API(data) {
   const start = Date.now();
   const res = withRetry(
@@ -585,6 +713,11 @@ function verifyCourseLibraryMM2API(data) {
   return passed;
 }
 
+/**
+ * ===============================
+ * Course lib Podcast page 1 API
+ * ===============================
+ */
 function verifyCourseLibraryPodcast1API(data) {
   const start = Date.now();
   const res = withRetry(
@@ -606,6 +739,12 @@ function verifyCourseLibraryPodcast1API(data) {
   return passed;
 }
 
+
+/**
+ * ===============================
+ * Course lib Podcast page 2 API
+ * ===============================
+ */
 function verifyCourseLibraryPodcast2API(data) {
   const start = Date.now();
   const res = withRetry(
@@ -627,6 +766,12 @@ function verifyCourseLibraryPodcast2API(data) {
   return passed;
 }
 
+
+/**
+ * ===============================
+ * Course lib Nano page 1 API
+ * ===============================
+ */
 function verifyCourseLibraryNano1API(data) {
   const start = Date.now();
   const res = withRetry(
@@ -648,6 +793,12 @@ function verifyCourseLibraryNano1API(data) {
   return passed;
 }
 
+
+/**
+ * ===============================
+ * Course lib Nano page 2 API
+ * ===============================
+ */
 function verifyCourseLibraryNano2API(data) {
   const start = Date.now();
   const res = withRetry(
@@ -668,6 +819,12 @@ function verifyCourseLibraryNano2API(data) {
   console.log(`✔ Nano Page 2 Lib Title: ${title}`);
   return passed;
 }
+
+/**
+ * ===============================
+ * My Orders API
+ * ===============================
+ */
 
 function verifyMyOrdersAPI(data) {
   const start = Date.now();
@@ -724,6 +881,145 @@ function verifyMyOrdersAPI(data) {
   return passed;
 }
 
+
+/**
+ * ===============================
+ * learning Pathway AI& Innovation Artificial Intelligence 101
+ * ===============================
+ */
+function verifyLearningPathwayAIInnovation1(data) {
+  const start = Date.now();
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/learning-pathways/topics/7/courses/?page=1`, { headers: authHeaders(data.token) }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
+  );
+  console.log(`⏱ Learning Pathway Topic Courses RT (ms): ${Date.now() - start}`);
+
+  const body = safeJson(res);
+  const firstCourse = body?.data?.[0] || {};
+  const title = firstCourse?.title || '';
+  const courseType = firstCourse?.course_type || '';
+  const classCredits = firstCourse?.class_credits;
+  const totalCount = body?.pagination_data?.total_count;
+
+  const passed = check(res, {
+    'LP Topic Courses status 200': (r) => r.status === 200,
+    'LP Topic Courses status_code 200': () => body?.status_code === 200,
+    'LP Topic Courses data not empty': () => Array.isArray(body?.data) && body.data.length > 0,
+    'LP Topic Courses title exists': () => title.trim().length > 0,
+    'LP Topic Courses course_type exists': () => courseType.trim().length > 0,
+    'LP Topic Courses class_credits is number': () => typeof classCredits === 'number' && classCredits > 0,
+    'LP Topic Courses caira_level exists': () => typeof firstCourse?.caira_level === 'number',
+    'LP Topic Courses included_for_caira is boolean': () => typeof firstCourse?.included_for_caira === 'boolean',
+    'LP Topic Courses pagination total_count exists': () => typeof totalCount === 'number' && totalCount > 0,
+    'LP Topic Courses pagination next_page exists': () => body?.pagination_data?.next_page !== null,
+    'LP Topic Courses category details exist': () => firstCourse?.course_category_details?.course_name?.length > 0,
+  });
+
+  console.log(`✔ LP Topic Courses Title: ${title}`);
+  console.log(`✔ LP Topic Courses Type: ${courseType} | Credits: ${classCredits}`);
+  console.log(`✔ LP Topic Courses Total Count: ${totalCount}`);
+
+  return passed;
+}
+
+/**
+ * ===============================
+ * learning Pathway AI& Innovation Powering Work with Microsoft
+ * ===============================
+ */
+function verifyLearningPathwayAIInnovation2(data) {
+  const start = Date.now();
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/learning-pathways/topics/8/courses/?page=1`, { headers: authHeaders(data.token) }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
+  );
+  console.log(`⏱ LP AI Innovation 2 - Topic Courses RT (ms): ${Date.now() - start}`);
+
+  const body = safeJson(res);
+  const firstCourse = body?.data?.[0] || {};
+  const title = firstCourse?.title || '';
+  const courseType = firstCourse?.course_type || '';
+  const classCredits = firstCourse?.class_credits;
+  const totalCount = body?.pagination_data?.total_count;
+  const currentDataLength = body?.data?.length || 0;
+
+  const passed = check(res, {
+    'LP AI Innovation 2 status 200': (r) => r.status === 200,
+    'LP AI Innovation 2 status_code 200': () => body?.status_code === 200,
+    'LP AI Innovation 2 data not empty': () => Array.isArray(body?.data) && body.data.length > 0,
+    'LP AI Innovation 2 title exists': () => title.trim().length > 0,
+    'LP AI Innovation 2 course_type exists': () => courseType.trim().length > 0,
+    'LP AI Innovation 2 class_credits is number': () => typeof classCredits === 'number' && classCredits > 0,
+    'LP AI Innovation 2 caira_level exists': () => typeof firstCourse?.caira_level === 'number',
+    'LP AI Innovation 2 included_for_caira is boolean': () => typeof firstCourse?.included_for_caira === 'boolean',
+    'LP AI Innovation 2 pagination total_count exists': () => typeof totalCount === 'number' && totalCount > 0,
+    'LP AI Innovation 2 pagination next_page valid': () => {
+      // next_page should only exist if more items remain beyond current page
+      return totalCount > currentDataLength
+        ? body?.pagination_data?.next_page !== null
+        : body?.pagination_data?.next_page === null;
+    },
+    'LP AI Innovation 2 category details exist': () => firstCourse?.course_category_details?.course_name?.length > 0,
+  });
+
+  console.log(`✔ LP AI Innovation 2 Title: ${title}`);
+  console.log(`✔ LP AI Innovation 2 Type: ${courseType} | Credits: ${classCredits}`);
+  console.log(`✔ LP AI Innovation 2 Total Count: ${totalCount} | Next Page: ${body?.pagination_data?.next_page}`);
+
+  return passed;
+}
+
+
+
+/**
+ * ===============================
+ * learning Pathway AI& Innovation The Accounting Agents
+ * ===============================
+ */
+
+function verifyLearningPathwayAIInnovation3(data) {
+  const start = Date.now();
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/learning-pathways/topics/9/courses/?page=1`, { headers: authHeaders(data.token) }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
+  );
+  console.log(`⏱ LP AI Innovation 2 - Topic Courses RT (ms): ${Date.now() - start}`);
+
+  const body = safeJson(res);
+  const firstCourse = body?.data?.[0] || {};
+  const title = firstCourse?.title || '';
+  const courseType = firstCourse?.course_type || '';
+  const classCredits = firstCourse?.class_credits;
+  const totalCount = body?.pagination_data?.total_count;
+  const currentDataLength = body?.data?.length || 0;
+
+  const passed = check(res, {
+    'LP AI Innovation 2 status 200': (r) => r.status === 200,
+    'LP AI Innovation 2 status_code 200': () => body?.status_code === 200,
+    'LP AI Innovation 2 data not empty': () => Array.isArray(body?.data) && body.data.length > 0,
+    'LP AI Innovation 2 title exists': () => title.trim().length > 0,
+    'LP AI Innovation 2 course_type exists': () => courseType.trim().length > 0,
+    'LP AI Innovation 2 class_credits is number': () => typeof classCredits === 'number' && classCredits > 0,
+    'LP AI Innovation 2 caira_level exists': () => typeof firstCourse?.caira_level === 'number',
+    'LP AI Innovation 2 included_for_caira is boolean': () => typeof firstCourse?.included_for_caira === 'boolean',
+    'LP AI Innovation 2 pagination total_count exists': () => typeof totalCount === 'number' && totalCount > 0,
+    'LP AI Innovation 2 pagination next_page valid': () => {
+      // next_page should only exist if more items remain beyond current page
+      return totalCount > currentDataLength
+        ? body?.pagination_data?.next_page !== null
+        : body?.pagination_data?.next_page === null;
+    },
+    'LP AI Innovation 2 category details exist': () => firstCourse?.course_category_details?.course_name?.length > 0,
+  });
+
+  console.log(`✔ LP AI Innovation 2 Title: ${title}`);
+  console.log(`✔ LP AI Innovation 2 Type: ${courseType} | Credits: ${classCredits}`);
+  console.log(`✔ LP AI Innovation 2 Total Count: ${totalCount} | Next Page: ${body?.pagination_data?.next_page}`);
+
+  return passed;
+}
+
 // ============================================================
 // DEFAULT FUNCTION
 // ============================================================
@@ -736,33 +1032,36 @@ export default function (data) {
   // ✅ FIX 11: Small sleep at start of each iteration to stagger VU requests
   sleep(Math.random() * 2); // 0–2s random jitter to spread load
 
-  runStep('Profile API',                    profileAPI,                    data, counters);
-  runStep('Related Course API',             relatedCourseAPI,              data, counters);
-  runStep('Course Details API',             courseDetailsPageAPI,          data, counters);
-  runStep('Complimentary Course API',       complimentaryCourseAPI,        data, counters);
-  runStep('Masterclass Track 1 API',        verifyTrack1API,               data, counters);
-  runStep('Masterclass Track 2 API',        verifyTrack2API,               data, counters);
-  runStep('Masterclass Track 3 API',        verifyTrack3API,               data, counters);
-  runStep('Subscription API',               verifyPlanPageAPI,             data, counters);
-  runStep('Podcast Track 1 API',            podcastTrack1API,              data, counters);
-  runStep('Podcast Track 2 API',            podcastTrack2API,              data, counters);
-  runStep('Podcast Track 3 API',            podcastTrack3API,              data, counters);
-  runStep('Complimentary Podcast API',      complimentaryPodcastCourseAPI, data, counters);
-  runStep('Essential Podcast Course API',   EssentialPodcastCourseAPI,     data, counters);
-  runStep('Nano Track 1 API',               nanoTrack1API,                 data, counters);
-  runStep('Nano Track 2 API',               nanoTrack2API,                 data, counters);
-  runStep('Nano Track 3 API',               nanoTrack3API,                 data, counters);
-  runStep('Nano Learning Page 1 API',       nanoLearningPage1API,          data, counters);
-  runStep('Nano Learning Page 2 API',       nanoLearningPage2API,          data, counters);
-  runStep('Nano Learning Page 3 API',       nanoLearningPage3API,          data, counters);
-  runStep('Caira Badge Page API',           VerifyCPETrackAPI,             data, counters);
-  runStep('Course Library MM1 API',         verifyCourseLibraryMM1API,     data, counters);
-  runStep('Course Library MM2 API',         verifyCourseLibraryMM2API,     data, counters);
-  runStep('Course Library Podcast1 API',    verifyCourseLibraryPodcast1API, data, counters);
-  runStep('Course Library Podcast2 API',    verifyCourseLibraryPodcast2API, data, counters);
-  runStep('Course Library Nano1 API',       verifyCourseLibraryNano1API,   data, counters);
-  runStep('Course Library Nano2 API',       verifyCourseLibraryNano2API,   data, counters);
-  runStep('My Orders API',                  verifyMyOrdersAPI,             data, counters);
+  // runStep('Profile API',                    profileAPI,                    data, counters);
+  // runStep('Related Course API',             relatedCourseAPI,              data, counters);
+  // runStep('Course Details API',             courseDetailsPageAPI,          data, counters);
+  // runStep('Complimentary Course API',       complimentaryCourseAPI,        data, counters);
+  // runStep('Masterclass Track 1 API',        verifyTrack1API,               data, counters);
+  // runStep('Masterclass Track 2 API',        verifyTrack2API,               data, counters);
+  // runStep('Masterclass Track 3 API',        verifyTrack3API,               data, counters);
+  // runStep('Subscription API',               verifyPlanPageAPI,             data, counters);
+  // runStep('Podcast Track 1 API',            podcastTrack1API,              data, counters);
+  // runStep('Podcast Track 2 API',            podcastTrack2API,              data, counters);
+  // runStep('Podcast Track 3 API',            podcastTrack3API,              data, counters);
+  // runStep('Complimentary Podcast API',      complimentaryPodcastCourseAPI, data, counters);
+  // runStep('Essential Podcast Course API',   EssentialPodcastCourseAPI,     data, counters);
+  // runStep('Nano Track 1 API',               nanoTrack1API,                 data, counters);
+  // runStep('Nano Track 2 API',               nanoTrack2API,                 data, counters);
+  // runStep('Nano Track 3 API',               nanoTrack3API,                 data, counters);
+  // runStep('Nano Learning Page 1 API',       nanoLearningPage1API,          data, counters);
+  // runStep('Nano Learning Page 2 API',       nanoLearningPage2API,          data, counters);
+  // runStep('Nano Learning Page 3 API',       nanoLearningPage3API,          data, counters);
+  // runStep('Caira Badge Page API',           VerifyCPETrackAPI,             data, counters);
+  // runStep('Course Library MM1 API',         verifyCourseLibraryMM1API,     data, counters);
+  // runStep('Course Library MM2 API',         verifyCourseLibraryMM2API,     data, counters);
+  // runStep('Course Library Podcast1 API',    verifyCourseLibraryPodcast1API, data, counters);
+  // runStep('Course Library Podcast2 API',    verifyCourseLibraryPodcast2API, data, counters);
+  // runStep('Course Library Nano1 API',       verifyCourseLibraryNano1API,   data, counters);
+  // runStep('Course Library Nano2 API',       verifyCourseLibraryNano2API,   data, counters);
+  // runStep('My Orders API',                  verifyMyOrdersAPI,             data, counters);
+  runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation1, data, counters);
+  runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation2, data, counters);
+  runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation3, data, counters);
 
   console.log('\n================ Final API Tests EXECUTION SUMMARY ================');
   console.log(`✅ Tests Passed : ${counters.passed}`);
