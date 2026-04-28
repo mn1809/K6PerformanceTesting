@@ -1,0 +1,312 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: scripts/stress_postlogin_test_copy.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 150 max VUs, 45m30s max duration (incl. graceful stop):
+              * post_login_load: 500 iterations shared among 150 VUs (maxDuration: 45m0s, gracefulStop: 30s)
+
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+running (00m02.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m00.1s/45m0s  000/500 shared iters
+
+running (00m03.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m01.1s/45m0s  000/500 shared iters
+
+running (00m04.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m02.1s/45m0s  000/500 shared iters
+
+running (00m05.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m03.1s/45m0s  000/500 shared iters
+
+running (00m06.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m04.1s/45m0s  000/500 shared iters
+
+running (00m07.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m05.1s/45m0s  000/500 shared iters
+
+running (00m08.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m06.1s/45m0s  000/500 shared iters
+
+running (00m09.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m07.1s/45m0s  000/500 shared iters
+
+running (00m10.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m08.1s/45m0s  000/500 shared iters
+
+running (00m11.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m09.1s/45m0s  000/500 shared iters
+
+running (00m12.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m10.1s/45m0s  000/500 shared iters
+
+running (00m13.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m11.1s/45m0s  000/500 shared iters
+
+running (00m14.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m12.1s/45m0s  000/500 shared iters
+
+running (00m15.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m13.1s/45m0s  000/500 shared iters
+
+running (00m16.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m14.1s/45m0s  000/500 shared iters
+
+running (00m17.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m15.1s/45m0s  000/500 shared iters
+
+running (00m18.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m16.1s/45m0s  000/500 shared iters
+
+running (00m19.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m17.1s/45m0s  000/500 shared iters
+
+running (00m20.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m18.1s/45m0s  000/500 shared iters
+
+running (00m21.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m19.1s/45m0s  000/500 shared iters
+
+running (00m22.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m20.1s/45m0s  000/500 shared iters
+
+running (00m23.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m21.1s/45m0s  000/500 shared iters
+
+running (00m24.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m22.1s/45m0s  000/500 shared iters
+
+running (00m25.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m23.1s/45m0s  000/500 shared iters
+
+running (00m26.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m24.1s/45m0s  000/500 shared iters
+
+running (00m27.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m25.1s/45m0s  000/500 shared iters
+
+running (00m28.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m26.1s/45m0s  000/500 shared iters
+
+running (00m29.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m27.1s/45m0s  000/500 shared iters
+
+running (00m30.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m28.1s/45m0s  000/500 shared iters
+
+running (00m31.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m29.1s/45m0s  000/500 shared iters
+
+running (00m32.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m30.1s/45m0s  000/500 shared iters
+
+running (00m33.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m31.1s/45m0s  000/500 shared iters
+
+running (00m34.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m32.1s/45m0s  000/500 shared iters
+
+running (00m35.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m33.1s/45m0s  000/500 shared iters
+
+running (00m36.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m34.1s/45m0s  000/500 shared iters
+
+running (00m37.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m35.1s/45m0s  000/500 shared iters
+
+running (00m38.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m36.1s/45m0s  000/500 shared iters
+
+running (00m39.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m37.1s/45m0s  000/500 shared iters
+
+running (00m40.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m38.1s/45m0s  000/500 shared iters
+
+running (00m41.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m39.1s/45m0s  000/500 shared iters
+
+running (00m42.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m40.1s/45m0s  000/500 shared iters
+
+running (00m43.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m41.1s/45m0s  000/500 shared iters
+
+running (00m44.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m42.1s/45m0s  000/500 shared iters
+
+running (00m45.0s), 150/150 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 150 VUs  00m43.1s/45m0s  000/500 shared iters
+
+
+  █ THRESHOLDS 
+
+    checks{step:Course Library MM2 API}
+    ✓ 'rate>0.95' rate=0.00%
+
+    checks{step:Course Library Nano1 API}
+    ✓ 'rate>0.95' rate=0.00%
+
+    checks{step:Course Library Nano2 API}
+    ✓ 'rate>0.95' rate=0.00%
+
+    checks{step:Course Library Podcast1 API}
+    ✓ 'rate>0.95' rate=0.00%
+
+    checks{step:Course Library Podcast2 API}
+    ✓ 'rate>0.95' rate=0.00%
+
+    checks{step:My Orders API}
+    ✓ 'rate>0.99' rate=0.00%
+
+    checks{step:Profile API}
+    ✓ 'rate>0.99' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 6076   133.667293/s
+    checks_succeeded...: 5.76%  350 out of 6076
+    checks_failed......: 94.23% 5726 out of 6076
+
+    ✗ Profile status 200
+      ↳  0% — ✓ 0 / ✗ 128
+    ✗ Profile status_code true
+      ↳  0% — ✓ 0 / ✗ 128
+    ✗ Related API status 200
+      ↳  0% — ✓ 0 / ✗ 128
+    ✗ At least one related course title present
+      ↳  0% — ✓ 0 / ✗ 128
+    ✗ Course Details status 200
+      ↳  0% — ✓ 0 / ✗ 127
+    ✗ Course title present
+      ↳  0% — ✓ 0 / ✗ 127
+    ✗ status_code is 200
+      ↳  0% — ✓ 0 / ✗ 127
+    ✗ Complimentary API status 200
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ First course title exists
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Get Track 1 HTTP 200
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Track 1 status_code 200
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Track 1 title exists
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Get Track 2 HTTP 200
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Track 2 status_code 200
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Track 2 title exists
+      ↳  0% — ✓ 0 / ✗ 120
+    ✗ Get Track 3 HTTP 200
+      ↳  0% — ✓ 0 / ✗ 119
+    ✗ Track 3 status_code 200
+      ↳  0% — ✓ 0 / ✗ 119
+    ✗ Track 3 title exists
+      ↳  0% — ✓ 0 / ✗ 119
+    ✗ Subscription API HTTP 200
+      ↳  0% — ✓ 0 / ✗ 116
+    ✗ Subscription status_code 200
+      ↳  0% — ✓ 0 / ✗ 116
+    ✗ Subscription list is not empty
+      ↳  0% — ✓ 0 / ✗ 116
+    ✓ All plans have valid subscription_name
+    ✗ Podcast Track 6 status 200
+      ↳  56% — ✓ 66 / ✗ 50
+    ✗ Podcast Track 6 title exists
+      ↳  56% — ✓ 66 / ✗ 50
+    ✗ Podcast Track 7 status 200
+      ↳  36% — ✓ 42 / ✗ 74
+    ✗ Podcast Track 7 title exists
+      ↳  36% — ✓ 42 / ✗ 74
+    ✗ Podcast Track 8 status 200
+      ↳  7% — ✓ 9 / ✗ 107
+    ✗ Podcast Track 8 title exists
+      ↳  7% — ✓ 9 / ✗ 107
+    ✗ Complimentary Podcast API status 200
+      ↳  0% — ✓ 0 / ✗ 115
+    ✗ Podcast complimentary title exists
+      ↳  0% — ✓ 0 / ✗ 115
+    ✗ Essential Podcast API status 200
+      ↳  0% — ✓ 0 / ✗ 115
+    ✗ Essential podcast title exists
+      ↳  0% — ✓ 0 / ✗ 115
+    ✗ Nano Track 1 status 200
+      ↳  0% — ✓ 0 / ✗ 115
+    ✗ Nano Track 1 title exists
+      ↳  0% — ✓ 0 / ✗ 115
+    ✗ Nano Track 2 status 200
+      ↳  0% — ✓ 0 / ✗ 114
+    ✗ Nano Track 2 title exists
+      ↳  0% — ✓ 0 / ✗ 114
+    ✗ Nano Track 3 status 200
+      ↳  0% — ✓ 0 / ✗ 114
+    ✗ Nano Track 3 title exists
+      ↳  0% — ✓ 0 / ✗ 114
+    ✗ Nano Learning Page 1 status 200
+      ↳  0% — ✓ 0 / ✗ 112
+    ✗ Nano Learning Page 1 status_code 200
+      ↳  0% — ✓ 0 / ✗ 112
+    ✗ Nano Learning Page 1 data not empty
+      ↳  0% — ✓ 0 / ✗ 112
+    ✗ Nano Learning Page 1 title exists
+      ↳  0% — ✓ 0 / ✗ 112
+    ✗ Nano Learning Page 2 status 200
+      ↳  0% — ✓ 0 / ✗ 111
+    ✗ Nano Learning Page 2 status_code 200
+      ↳  0% — ✓ 0 / ✗ 111
+    ✗ Nano Learning Page 2 data not empty
+      ↳  0% — ✓ 0 / ✗ 111
+    ✗ Nano Learning Page 2 title exists
+      ↳  0% — ✓ 0 / ✗ 111
+    ✗ Nano Learning Page 3 status 200
+      ↳  0% — ✓ 0 / ✗ 109
+    ✗ Nano Learning Page 3 status_code 200
+      ↳  0% — ✓ 0 / ✗ 109
+    ✗ Nano Learning Page 3 data not empty
+      ↳  0% — ✓ 0 / ✗ 109
+    ✗ Nano Learning Page 3 title exists
+      ↳  0% — ✓ 0 / ✗ 109
+    ✗ User Badges status 200
+      ↳  0% — ✓ 0 / ✗ 106
+    ✗ Badges list not empty
+      ↳  0% — ✓ 0 / ✗ 106
+    ✗ Masterclass Library 1 status 200
+      ↳  0% — ✓ 0 / ✗ 5
+    ✗ Masterclass Library 1 status_code 200
+      ↳  0% — ✓ 0 / ✗ 5
+    ✗ Masterclass Library 1 data not empty
+      ↳  0% — ✓ 0 / ✗ 5
+    ✗ Masterclass Library 1 title exists
+      ↳  0% — ✓ 0 / ✗ 5
+
+    HTTP
+    http_req_duration..............: avg=436.06ms min=212.75ms med=270.76ms max=25.81s p(90)=874.56ms p(95)=1.33s
+      { expected_response:true }...: avg=477.8ms  min=212.75ms med=272.48ms max=25.81s p(90)=965.49ms p(95)=1.61s
+    http_req_failed................: 48.09% 4117 out of 8560
+    http_reqs......................: 8560   188.313369/s
+
+    EXECUTION
+    vus............................: 150    min=0            max=150
+    vus_max........................: 150    min=150          max=150
+
+    NETWORK
+    data_received..................: 4.9 MB 107 kB/s
+    data_sent......................: 1.7 MB 37 kB/s
+
+
+
+
+running (00m45.5s), 000/150 VUs, 0 complete and 150 interrupted iterations
+post_login_load ✗ [  14% ] 150 VUs  00m43.5s/45m0s  071/500 shared iters

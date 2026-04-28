@@ -13,9 +13,9 @@ export let options = {
   scenarios: {
     post_login_load: {
       executor: 'shared-iterations',
-      vus: 100,
-      iterations: 400, 
-      maxDuration: '45m',
+      vus: 300,
+      iterations: 1000, 
+      maxDuration: '120m',
     },
   },
   // ✅ FIX 1: Add thresholds to distinguish acceptable flakiness from real failures
@@ -30,7 +30,8 @@ export let options = {
   },
 };
 
-const BASE_URL = 'https://test-masterclass.milesmasterclass.com';
+//const BASE_URL = 'https://test-masterclass.milesmasterclass.com';
+const BASE_URL = 'https://api.milesmasterclass.com';
 const email = 'manoj.hr@mileseducation.com';
 const otp = '654987';
 
