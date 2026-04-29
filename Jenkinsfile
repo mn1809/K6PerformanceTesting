@@ -18,28 +18,32 @@ pipeline {
             }
         }
 
-        stage('Run k6 Test') {
-            steps {
-                script {
-                    // ✅ Capture exit code — don't let 99 kill the pipeline
-                    def exitCode = bat(
-                        script: "k6 run ${K6_SCRIPT} 2>&1 | tee k6-console.log",
-                        returnStatus: true
-                    )
-                    echo "K6 Exit Code: ${exitCode}"
+        // ✅ ADD THIS INSTEAD
+    stage('Run k6 Test') 
+    {
+        steps {
+        script {
+            def exitCode = bat(
+                script: "k6 run ${K6_SCRIPT} > k6-console.log 2>&1",
+                returnStatus: true
+            )
 
-                    if (exitCode == 0) {
-                        echo "✅ K6 passed — all thresholds met"
-                    } else if (exitCode == 99) {
-                        echo "⚠️ K6 thresholds crossed — marking UNSTABLE"
-                        currentBuild.result = 'UNSTABLE'
-                    } else {
-                        currentBuild.result = 'FAILURE'
-                        error "❌ K6 crashed with exit code ${exitCode}"
-                    }
-                }
+            bat "type k6-console.log"
+
+            echo "K6 Exit Code: ${exitCode}"
+
+            if (exitCode == 0) {
+                echo "✅ K6 passed"
+            } else if (exitCode == 99) {
+                echo "⚠️ Thresholds crossed — UNSTABLE"
+                currentBuild.result = 'UNSTABLE'
+            } else {
+                currentBuild.result = 'FAILURE'
+                error "❌ K6 crashed: exit code ${exitCode}"
             }
         }
+    }
+}
 
         stage('Create Jira Ticket') {
             // ✅ Only run if summary file exists
