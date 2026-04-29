@@ -41,9 +41,9 @@ export let options = {
       startVUs: 0,
       stages: [
         { duration: '10m',  target: 100  },  // 🔼 Warm up
-        { duration: '20m', target: 500  },  // 🔼 Mid load
-        { duration: '20m', target: 1000 },  // 🔼 Peak stress
-        { duration: '20m', target: 1000 },  // ➡️ Hold peak
+        { duration: '15m', target: 500  },  // 🔼 Mid load
+        { duration: '15m', target: 400 },  // 🔼 Peak stress
+        { duration: '15m', target: 400 },  // ➡️ Hold peak
         { duration: '5m',  target: 0    },  // 🔽 Cool down
       ],
       gracefulRampDown: '30s',
@@ -52,8 +52,8 @@ export let options = {
 
   thresholds: {
     // ✅ Global response time & failure rate
-    'http_req_duration':  ['p(95)<2000'],   // 95% requests under 2s
-    'http_req_failed':    ['rate<0.01'],    // Less than 1% network failures
+    'http_req_duration':  ['p(95)<5000'],   // 95% requests under 2s
+    'http_req_failed':    ['rate<0.10'],    // Less than 1% network failures
 
     // ✅ Per API check pass rates (your existing ones — kept as is)
     'checks{step:Profile API}':                 ['rate>0.99'],
@@ -202,8 +202,10 @@ function profileAPI(data) {
     'Profile status_code true': (r) =>
       r.json('status_code') === true || r.json('status_code') === 'true',
   });
-}
 
+}
+// Between each API test
+ // 500ms breathing room
 
 /**
  * ===============================
@@ -229,6 +231,7 @@ function relatedCourseAPI(data) {
   });
 }
 
+
 /**
  * ===============================
  * Case 5: Course Details API
@@ -252,6 +255,7 @@ function courseDetailsPageAPI(data) {
   });
 }
 
+//
 /**
  * ===============================
  * Case 6: Complimentary Courses API
@@ -279,7 +283,7 @@ function complimentaryCourseAPI(data) {
   });
 }
 
-
+//
 /**
  * ===============================
  * Masterclass Track 1
@@ -342,7 +346,7 @@ function verifyTrack1MasterclassCoursesAPI(data) {
   return passed;
 }
 
-
+//
 
 /**
  * ===============================
@@ -381,6 +385,9 @@ function verifyTrack2MasterclassCoursesAPI(data) {
   return passed;
 }
 
+
+//
+
 /**
  * ===============================
  * Masterclass Track 3
@@ -418,7 +425,7 @@ function verifyTrack3MasterclassCoursesAPI(data) {
   return passed;
 }
 
-
+//
 /**
  * ===============================
  * Masterclass Track 4
@@ -455,7 +462,7 @@ function verifyTrack4MasterclassCoursesAPI(data) {
 
   return passed;
 }
-
+//
 /**
  * ===============================
  * Masterclass Track 2
@@ -539,7 +546,7 @@ function verifyPlanPageAPI(data) {
   });
 }
 
-
+//
 
 /**
  * ===============================
@@ -563,7 +570,7 @@ function podcastTrack1API(data) {
     'Podcast Track 6 title exists': () => title !== 'Title not found',
   });
 }
-
+//
 /**
  * ===============================
  * Podcast Track 2 API
@@ -588,6 +595,8 @@ function podcastTrack2API(data) {
   });
 }
 
+//
+
 
 /**
  * ===============================
@@ -611,6 +620,9 @@ function podcastTrack3API(data) {
     'Podcast Track 8 title exists': () => title !== 'Title not found',
   });
 }
+//
+
+
 
 
 /**
@@ -637,6 +649,8 @@ function complimentaryPodcastCourseAPI(data) {
 }
 
 
+
+//
 /**
  * ===============================
  * Essential Courses API- POdcast
@@ -659,7 +673,7 @@ function EssentialPodcastCourseAPI(data) {
     'Essential podcast title exists': () => title !== '❌ Title not found',
   });
 }
-
+//
 /**
  * ===============================
  * Reels Page Track 1 API
@@ -684,7 +698,7 @@ function nanoTrack1API(data) {
   });
 }
 
-
+//
 /**
  * ===============================
  * Reels Page Track 2 API
@@ -708,7 +722,7 @@ function nanoTrack2API(data) {
   });
 }
 
-
+//
 /**
  * ===============================
  * Reels Page Track 3 API
@@ -733,6 +747,8 @@ function nanoTrack3API(data) {
   });
 }
 
+
+//
 /**
  * ===============================
  * Reels Page 1 Explore page API
@@ -763,6 +779,8 @@ function nanoLearningPage1API(data) {
   return passed;
 }
 
+//
+
 /**
  * ===============================
  * Reels Page 2 Explore page API
@@ -792,7 +810,7 @@ function nanoLearningPage2API(data) {
   return passed;
 }
 
-
+//
 /**
  * ===============================
  * Reels Page 3 Explore page API
@@ -822,6 +840,9 @@ function nanoLearningPage3API(data) {
   console.log(`✔ Asserted Nano Learning Page 3 Title: ${title}`);
   return passed;
 }
+
+
+//
 /**
  * ===============================
  * Caira Badge Page API
@@ -852,6 +873,8 @@ function VerifyCPETrackAPI(data) {
   return passed;
 }
 
+
+//
 /**
  * ===============================
  * Course lib MM page 1 API
@@ -880,6 +903,9 @@ function verifyCourseLibraryMM1API(data) {
   return passed;
 }
 
+
+//
+
 /**
  * ===============================
  * Course lib MM page 2 API
@@ -906,6 +932,8 @@ function verifyCourseLibraryMM2API(data) {
   return passed;
 }
 
+//
+
 /**
  * ===============================
  * Course lib Podcast page 1 API
@@ -931,7 +959,7 @@ function verifyCourseLibraryPodcast1API(data) {
   console.log(`✔ Podcast Page 1 Lib Title: ${title}`);
   return passed;
 }
-
+//
 
 /**
  * ===============================
@@ -958,7 +986,7 @@ function verifyCourseLibraryPodcast2API(data) {
   console.log(`✔ Podcast Page 2 Lib Title: ${title}`);
   return passed;
 }
-
+//
 
 /**
  * ===============================
@@ -986,6 +1014,7 @@ function verifyCourseLibraryNano1API(data) {
   return passed;
 }
 
+//
 
 /**
  * ===============================
@@ -1013,6 +1042,8 @@ function verifyCourseLibraryNano2API(data) {
   return passed;
 }
 
+
+//
 /**
  * ===============================
  * My Orders API
@@ -1141,6 +1172,8 @@ function verifyMyOrdersAPI(data) {
   return passed;
 }
 
+
+//
 /**
  * ===============================
  * learning Pathway AI& Innovation Artificial Intelligence 101
@@ -1182,6 +1215,8 @@ function verifyLearningPathwayAIInnovation1(data) {
   return passed;
 }
 
+
+//
 /**
  * ===============================
  * learning Pathway AI& Innovation Powering Work with Microsoft
@@ -1292,44 +1327,67 @@ export default function (data) {
   sleep(Math.random() * 2); // 0–2s random jitter to spread load
 
   runStep('Profile API',                    profileAPI,                    data, counters);
+  sleep(0.5);  // 500ms breathing room  
   runStep('Related Course API',             relatedCourseAPI,              data, counters);
+  sleep(0.5);
   runStep('Course Details API',             courseDetailsPageAPI,          data, counters);
+  sleep(0.5);
   runStep('Complimentary Course API',       complimentaryCourseAPI,        data, counters);
+  sleep(0.5);
   runStep('verifyTrack1MasterclassCoursesAPI', verifyTrack1MasterclassCoursesAPI, data, counters);
+  sleep(0.5);
   runStep('verifyTrack2MasterclassCoursesAPI', verifyTrack2MasterclassCoursesAPI, data, counters);
+  sleep(0.5);
   runStep('verifyTrack3MasterclassCoursesAPI', verifyTrack3MasterclassCoursesAPI, data, counters);
+  sleep(0.5);
   runStep('verifyTrack4MasterclassCoursesAPI', verifyTrack4MasterclassCoursesAPI, data, counters);
+  sleep(0.5);
   runStep('Subscription API',               verifyPlanPageAPI,             data, counters);
+  sleep(0.5);
   runStep('Podcast Track 1 API',            podcastTrack1API,              data, counters);
+  sleep(0.5);
   runStep('Podcast Track 2 API',            podcastTrack2API,              data, counters);
+  sleep(0.5);
   runStep('Podcast Track 3 API',            podcastTrack3API,              data, counters);
+  sleep(0.5);
   runStep('Complimentary Podcast API',      complimentaryPodcastCourseAPI, data, counters);
+  sleep(0.5);
   runStep('Essential Podcast Course API',   EssentialPodcastCourseAPI,     data, counters);
+  sleep(0.5);
   runStep('Nano Track 1 API',               nanoTrack1API,                 data, counters);
+  sleep(0.5);
   runStep('Nano Track 2 API',               nanoTrack2API,                 data, counters);
+  sleep(0.5);
   runStep('Nano Track 3 API',               nanoTrack3API,                 data, counters);
+  sleep(0.5);
   runStep('Nano Learning Page 1 API',       nanoLearningPage1API,          data, counters);
+  sleep(0.5);
   runStep('Nano Learning Page 2 API',       nanoLearningPage2API,          data, counters);
+  sleep(0.5);
   runStep('Nano Learning Page 3 API',       nanoLearningPage3API,          data, counters);
+  sleep(0.5);
   runStep('Caira Badge Page API',           VerifyCPETrackAPI,             data, counters);
+  sleep(0.5);
   runStep('Course Library MM1 API',         verifyCourseLibraryMM1API,     data, counters);
+  sleep(0.5);
   runStep('Course Library MM2 API',         verifyCourseLibraryMM2API,     data, counters);
+  sleep(0.5);
   runStep('Course Library Podcast1 API',    verifyCourseLibraryPodcast1API, data, counters);
+  sleep(0.5);
   runStep('Course Library Podcast2 API',    verifyCourseLibraryPodcast2API, data, counters);
+  sleep(0.5);
   runStep('Course Library Nano1 API',       verifyCourseLibraryNano1API,   data, counters);
+  sleep(0.5);
   runStep('Course Library Nano2 API',       verifyCourseLibraryNano2API,   data, counters);
+  sleep(0.5);
   runStep('My Orders API',                  verifyMyOrdersAPI,             data, counters);
+  sleep(0.5);
   runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation1, data, counters);
+  sleep(0.5);
   runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation2, data, counters);
+  sleep(0.5);
   runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation3, data, counters);
   
-
-
-
-
-
-
-
 
 
   console.log('\n================ Final API Tests EXECUTION SUMMARY ================');

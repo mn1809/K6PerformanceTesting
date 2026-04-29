@@ -1,0 +1,1 @@
+time="2026-04-29T14:06:11+05:30" level=error msg="could not initialize 'scripts/stress_postlogin_test_copy.js': could not load JS test 'file:///Users/miles/k6-masterclass-performancetesting/scripts/stress_postlogin_test_copy.js': SyntaxError: duplicate bounded name sleep"
