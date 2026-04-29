@@ -9,24 +9,64 @@ import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.2/index.js";
  * k6 OPTIONS
  * ===============================
  */
+
+
+// export let options = {
+//   scenarios: {
+//     post_login_load: {
+//       executor: 'shared-iterations',
+//       vus: 1000,
+//       iterations: 4000, 
+//       maxDuration: '120m',
+//     },
+//   },
+
+//   // ✅ FIX 1: Add thresholds to distinguish acceptable flakiness from real failures
+//   thresholds: {
+//     'checks{step:Profile API}':                    ['rate>0.99'],
+//     'checks{step:My Orders API}':                  ['rate>0.99'],
+//     'checks{step:Course Library MM2 API}':         ['rate>0.95'],
+//     'checks{step:Course Library Podcast1 API}':    ['rate>0.95'],
+//     'checks{step:Course Library Podcast2 API}':    ['rate>0.95'],
+//     'checks{step:Course Library Nano1 API}':       ['rate>0.95'],
+//     'checks{step:Course Library Nano2 API}':       ['rate>0.95'],
+//   },
+// };
+
+
 export let options = {
   scenarios: {
     post_login_load: {
-      executor: 'shared-iterations',
-      vus: 1,
-      iterations: 1, 
-      maxDuration: '120m',
+      executor: 'ramping-vus',        // ✅ Gradual ramp instead of instant spike
+      startVUs: 0,
+      stages: [
+        { duration: '10m',  target: 100  },  // 🔼 Warm up
+        { duration: '20m', target: 500  },  // 🔼 Mid load
+        { duration: '20m', target: 1000 },  // 🔼 Peak stress
+        { duration: '20m', target: 1000 },  // ➡️ Hold peak
+        { duration: '5m',  target: 0    },  // 🔽 Cool down
+      ],
+      gracefulRampDown: '30s',
     },
   },
-  // ✅ FIX 1: Add thresholds to distinguish acceptable flakiness from real failures
+
   thresholds: {
-    'checks{step:Profile API}':                    ['rate>0.99'],
-    'checks{step:My Orders API}':                  ['rate>0.99'],
-    'checks{step:Course Library MM2 API}':         ['rate>0.95'],
-    'checks{step:Course Library Podcast1 API}':    ['rate>0.95'],
-    'checks{step:Course Library Podcast2 API}':    ['rate>0.95'],
-    'checks{step:Course Library Nano1 API}':       ['rate>0.95'],
-    'checks{step:Course Library Nano2 API}':       ['rate>0.95'],
+    // ✅ Global response time & failure rate
+    'http_req_duration':  ['p(95)<2000'],   // 95% requests under 2s
+    'http_req_failed':    ['rate<0.01'],    // Less than 1% network failures
+
+    // ✅ Per API check pass rates (your existing ones — kept as is)
+    'checks{step:Profile API}':                 ['rate>0.99'],
+    'checks{step:My Orders API}':               ['rate>0.99'],
+    'checks{step:Course Library MM2 API}':      ['rate>0.95'],
+    'checks{step:Course Library Podcast1 API}': ['rate>0.95'],
+    'checks{step:Course Library Podcast2 API}': ['rate>0.95'],
+    'checks{step:Course Library Nano1 API}':    ['rate>0.95'],
+    'checks{step:Course Library Nano2 API}':    ['rate>0.95'],
+
+    // ✅ Per API response time (add per endpoint if needed)
+    'http_req_duration{step:My Orders API}':    ['p(95)<3000'],  // Orders API gets extra time
+    'http_req_duration{step:Profile API}':      ['p(95)<1500'],
   },
 };
 
@@ -245,49 +285,100 @@ function complimentaryCourseAPI(data) {
  * Masterclass Track 1
  * ===============================
  */
-function verifyTrack1API(data) {
+// function verifyTrack1API(data) {
+//   const start = Date.now();
+//   const res = http.post(
+//     `${BASE_URL}/api/dashboard/get_track/`,
+//     JSON.stringify({ track: 'enable_for_human_skills_in_the_age_of_ai' }),
+//     { headers: authHeaders(data.token) }
+//   );
+//   console.log(`⏱ Track 1 RT (ms): ${Date.now() - start}`);
+
+//   const body = safeJson(res);
+//   const title = body?.data?.[0]?.title || null;
+//   console.log(`🎯 Track 1 Title: ${title}`);
+
+//   return check(res, {
+//     'Get Track 1 HTTP 200': (r) => r.status === 200,
+//     'Track 1 status_code 200': () => body?.status_code === 200,
+//     'Track 1 title exists': () => title !== null && title.trim().length > 0,
+//   });
+// }
+
+
+/**
+ * ===============================
+ * Masterclass Track 1
+ * ===============================
+ */
+function verifyTrack1MasterclassCoursesAPI(data) {
   const start = Date.now();
-  const res = http.post(
-    `${BASE_URL}/api/dashboard/get_track/`,
-    JSON.stringify({ track: 'enable_for_human_skills_in_the_age_of_ai' }),
-    { headers: authHeaders(data.token) }
+
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/tracks/6/courses/?course_type=masterclass&page=1`, {
+      headers: {
+        Authorization: `bearer ${data.token}`,
+        'Content-Type': 'application/json',
+        accept: 'application/json, text/plain, */*',
+        'x-app-type': 'WA',
+      },
+    }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
   );
-  console.log(`⏱ Track 1 RT (ms): ${Date.now() - start}`);
+
+  console.log(`⏱ Track 6 Masterclass Courses RT (ms): ${Date.now() - start}`);
 
   const body = safeJson(res);
   const title = body?.data?.[0]?.title || null;
-  console.log(`🎯 Track 1 Title: ${title}`);
 
-  return check(res, {
-    'Get Track 1 HTTP 200': (r) => r.status === 200,
-    'Track 1 status_code 200': () => body?.status_code === 200,
-    'Track 1 title exists': () => title !== null && title.trim().length > 0,
+  console.log(`🎯 Track 6 Title: ${title}`);
+
+  const passed = check(res, {
+    'Track 6 Masterclass HTTP 200': (r) => r.status === 200,
+    'Track 6 Masterclass status_code 200': () => body?.status_code === 200,
+    'Track 6 Masterclass title exists': () => title !== null && title.trim().length > 0,
   });
+
+  return passed;
 }
+
+
 
 /**
  * ===============================
  * Masterclass Track 2
  * ===============================
  */
-function verifyTrack2API(data) {
+
+function verifyTrack2MasterclassCoursesAPI(data) {
   const start = Date.now();
-  const res = http.post(
-    `${BASE_URL}/api/dashboard/get_track/`,
-    JSON.stringify({ track: 'enable_for_ai_leadership' }),
-    { headers: authHeaders(data.token) }
+
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/tracks/7/courses/?course_type=masterclass&page=1`, {
+      headers: {
+        Authorization: `bearer ${data.token}`,
+        'Content-Type': 'application/json',
+        accept: 'application/json, text/plain, */*',
+        'x-app-type': 'WA',
+      },
+    }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
   );
-  console.log(`⏱ Track 2 RT (ms): ${Date.now() - start}`);
+
+  console.log(`⏱ Track 7 Masterclass Courses RT (ms): ${Date.now() - start}`);
 
   const body = safeJson(res);
   const title = body?.data?.[0]?.title || null;
-  console.log(`🎯 Track 2 Title: ${title}`);
 
-  return check(res, {
-    'Get Track 2 HTTP 200': (r) => r.status === 200,
-    'Track 2 status_code 200': () => body?.status_code === 200,
-    'Track 2 title exists': () => title !== null && title.trim().length > 0,
+  console.log(`🎯 Track 7 Title: ${title}`);
+
+  const passed = check(res, {
+    'Track 7 Masterclass HTTP 200': (r) => r.status === 200,
+    'Track 7 Masterclass status_code 200': () => body?.status_code === 200,
+    'Track 7 Masterclass title exists': () => title !== null && title.trim().length > 0,
   });
+
+  return passed;
 }
 
 /**
@@ -295,25 +386,125 @@ function verifyTrack2API(data) {
  * Masterclass Track 3
  * ===============================
  */
-function verifyTrack3API(data) {
+
+function verifyTrack3MasterclassCoursesAPI(data) {
   const start = Date.now();
-  const res = http.post(
-    `${BASE_URL}/api/dashboard/get_track/`,
-    JSON.stringify({ track: 'enable_for_generative_ai' }),
-    { headers: authHeaders(data.token) }
+
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/tracks/8/courses/?course_type=masterclass&page=1`, {
+      headers: {
+        Authorization: `bearer ${data.token}`,
+        'Content-Type': 'application/json',
+        accept: 'application/json, text/plain, */*',
+        'x-app-type': 'WA',
+      },
+    }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
   );
-  console.log(`⏱ Track 3 RT (ms): ${Date.now() - start}`);
+
+  console.log(`⏱ Track 8 Masterclass Courses RT (ms): ${Date.now() - start}`);
 
   const body = safeJson(res);
   const title = body?.data?.[0]?.title || null;
-  console.log(`🎯 Track 3 Title: ${title}`);
 
-  return check(res, {
-    'Get Track 3 HTTP 200': (r) => r.status === 200,
-    'Track 3 status_code 200': () => body?.status_code === 200,
-    'Track 3 title exists': () => title !== null && title.trim().length > 0,
+  console.log(`🎯 Track 8 Title: ${title}`);
+
+  const passed = check(res, {
+    'Track 8 Masterclass HTTP 200': (r) => r.status === 200,
+    'Track 8 Masterclass status_code 200': () => body?.status_code === 200,
+    'Track 8 Masterclass title exists': () => title !== null && title.trim().length > 0,
   });
+
+  return passed;
 }
+
+
+/**
+ * ===============================
+ * Masterclass Track 4
+ * ===============================
+ */
+
+function verifyTrack4MasterclassCoursesAPI(data) {
+  const start = Date.now();
+
+  const res = withRetry(
+    () => http.get(`${BASE_URL}/api/v2/tracks/12/courses/?course_type=masterclass&page=1`, {
+      headers: {
+        Authorization: `bearer ${data.token}`,
+        'Content-Type': 'application/json',
+        accept: 'application/json, text/plain, */*',
+        'x-app-type': 'WA',
+      },
+    }),
+    (r) => { const b = safeJson(r); return Array.isArray(b?.data) && b.data.length > 0; }
+  );
+
+  console.log(`⏱ Track 12 Masterclass Courses RT (ms): ${Date.now() - start}`);
+
+  const body = safeJson(res);
+  const title = body?.data?.[0]?.title || null;
+
+  console.log(`🎯 Track 12 Title: ${title}`);
+
+  const passed = check(res, {
+    'Track 12 Masterclass HTTP 200': (r) => r.status === 200,
+    'Track 12 Masterclass status_code 200': () => body?.status_code === 200,
+    'Track 12 Masterclass title exists': () => title !== null && title.trim().length > 0,
+  });
+
+  return passed;
+}
+
+/**
+ * ===============================
+ * Masterclass Track 2
+ * ===============================
+ */
+// function verifyTrack2API(data) {
+//   const start = Date.now();
+//   const res = http.post(
+//     `${BASE_URL}/api/dashboard/get_track/`,
+//     JSON.stringify({ track: 'enable_for_ai_leadership' }),
+//     { headers: authHeaders(data.token) }
+//   );
+//   console.log(`⏱ Track 2 RT (ms): ${Date.now() - start}`);
+
+//   const body = safeJson(res);
+//   const title = body?.data?.[0]?.title || null;
+//   console.log(`🎯 Track 2 Title: ${title}`);
+
+//   return check(res, {
+//     'Get Track 2 HTTP 200': (r) => r.status === 200,
+//     'Track 2 status_code 200': () => body?.status_code === 200,
+//     'Track 2 title exists': () => title !== null && title.trim().length > 0,
+//   });
+// }
+
+/**
+ * ===============================
+ * Masterclass Track 3
+ * ===============================
+ */
+// function verifyTrack3API(data) {
+//   const start = Date.now();
+//   const res = http.post(
+//     `${BASE_URL}/api/dashboard/get_track/`,
+//     JSON.stringify({ track: 'enable_for_generative_ai' }),
+//     { headers: authHeaders(data.token) }
+//   );
+//   console.log(`⏱ Track 3 RT (ms): ${Date.now() - start}`);
+
+//   const body = safeJson(res);
+//   const title = body?.data?.[0]?.title || null;
+//   console.log(`🎯 Track 3 Title: ${title}`);
+
+//   return check(res, {
+//     'Get Track 3 HTTP 200': (r) => r.status === 200,
+//     'Track 3 status_code 200': () => body?.status_code === 200,
+//     'Track 3 title exists': () => title !== null && title.trim().length > 0,
+//   });
+// }
 
 
 
@@ -492,6 +683,7 @@ function nanoTrack1API(data) {
     'Nano Track 1 title exists': () => title !== 'Title not found',
   });
 }
+
 
 /**
  * ===============================
@@ -826,10 +1018,69 @@ function verifyCourseLibraryNano2API(data) {
  * My Orders API
  * ===============================
  */
+// function verifyMyOrdersAPI(data) {
+//   const start = Date.now();
+//   // ✅ FIX 10: Retry My Orders — most important API, retries up to 3 times
+//   const res = withRetry(
+//     () => http.get(`${BASE_URL}/api/user/order/my_orders/`, { headers: authHeaders(data.token) }),
+//     (r) => {
+//       const b = safeJson(r);
+//       return r.status === 200 && Array.isArray(b?.data) && b.data.length > 0;
+//     },
+//     3,
+//     1500  // 1.5s between retries
+//   );
+//   console.log(`⏱ My Orders RT (ms): ${Date.now() - start}`);
 
+//   const body = safeJson(res);
+//   let passed = true;
+//   let subscriptionValidated = false;
+
+//   passed = passed && check(res, {
+//     'My Orders status 200': (r) => r.status === 200,
+//     'My Orders status_code true': () => body?.status_code === true,
+//     'My Orders data not empty': () => Array.isArray(body?.data) && body.data.length > 0,
+//   });
+
+//   for (let order of body?.data || []) {
+//     passed = passed && check(order, {
+//       'Order ID valid': (o) => o?.id && o.id > 0,
+//     });
+
+//     for (let item of order?.order_items || []) {
+//       if (item?.item_type?.toLowerCase() === 'subscription') {
+//         const details = item?.item_details || {};
+//         passed = passed && check(item, {
+//           'Subscription name valid': () =>
+//             details?.subscription_name && details.subscription_name.trim().length > 0,
+//           'Plan duration valid': () =>
+//             details?.plan_duration && details.plan_duration > 0,
+//           'Discount type valid': () =>
+//             item?.discount_type && item.discount_type.trim().length > 0,
+//         });
+//         console.log(
+//           `✔ Order ID: ${order.id} | Subscription: ${details.subscription_name} | Duration: ${details.plan_duration} | Discount Type: ${item.discount_type}`
+//         );
+//         subscriptionValidated = true;
+//       }
+//     }
+//   }
+
+//   passed = passed && check(subscriptionValidated, {
+//     'At least one subscription exists': (v) => v === true,
+//   });
+
+//   return passed;
+// }
+
+/**
+ * ===============================
+ * My Orders API
+ * ===============================
+ */
 function verifyMyOrdersAPI(data) {
   const start = Date.now();
-  // ✅ FIX 10: Retry My Orders — most important API, retries up to 3 times
+
   const res = withRetry(
     () => http.get(`${BASE_URL}/api/user/order/my_orders/`, { headers: authHeaders(data.token) }),
     (r) => {
@@ -837,51 +1088,58 @@ function verifyMyOrdersAPI(data) {
       return r.status === 200 && Array.isArray(b?.data) && b.data.length > 0;
     },
     3,
-    1500  // 1.5s between retries
+    1500
   );
   console.log(`⏱ My Orders RT (ms): ${Date.now() - start}`);
 
+  // ✅ Parse ONCE — avoid double safeJson() call
   const body = safeJson(res);
-  let passed = true;
+  const orders = body?.data || [];
+
+  // ✅ Pre-compute all loop validations OUTSIDE check()
+  let allOrderIdsValid = true;
+  let allSubscriptionsValid = true;
   let subscriptionValidated = false;
+  let subscriptionLog = '';
 
-  passed = passed && check(res, {
-    'My Orders status 200': (r) => r.status === 200,
-    'My Orders status_code true': () => body?.status_code === true,
-    'My Orders data not empty': () => Array.isArray(body?.data) && body.data.length > 0,
-  });
+  for (const order of orders) {
+    if (!order?.id || order.id <= 0) {
+      allOrderIdsValid = false;
+    }
 
-  for (let order of body?.data || []) {
-    passed = passed && check(order, {
-      'Order ID valid': (o) => o?.id && o.id > 0,
-    });
-
-    for (let item of order?.order_items || []) {
+    for (const item of order?.order_items || []) {
       if (item?.item_type?.toLowerCase() === 'subscription') {
         const details = item?.item_details || {};
-        passed = passed && check(item, {
-          'Subscription name valid': () =>
-            details?.subscription_name && details.subscription_name.trim().length > 0,
-          'Plan duration valid': () =>
-            details?.plan_duration && details.plan_duration > 0,
-          'Discount type valid': () =>
-            item?.discount_type && item.discount_type.trim().length > 0,
-        });
-        console.log(
-          `✔ Order ID: ${order.id} | Subscription: ${details.subscription_name} | Duration: ${details.plan_duration} | Discount Type: ${item.discount_type}`
-        );
+
+        const nameValid     = details?.subscription_name?.trim().length > 0;
+        const durationValid = details?.plan_duration > 0;
+        const discountValid = item?.discount_type?.trim().length > 0;
+
+        if (!nameValid || !durationValid || !discountValid) {
+          allSubscriptionsValid = false;
+        }
+
+        subscriptionLog = `✔ Order ID: ${order.id} | Subscription: ${details.subscription_name} | Duration: ${details.plan_duration} | Discount Type: ${item.discount_type}`;
         subscriptionValidated = true;
       }
     }
   }
 
-  passed = passed && check(subscriptionValidated, {
-    'At least one subscription exists': (v) => v === true,
+  // ✅ Single batched check() call — huge perf gain in stress testing
+  const passed = check(res, {
+    'My Orders status 200': (r) => r.status === 200,
+    'My Orders status_code true': () => body?.status_code === true,
+    'My Orders data not empty': () => orders.length > 0,
+    'All Order IDs valid': () => allOrderIdsValid,
+    'All Subscriptions valid': () => allSubscriptionsValid,
+    'At least one subscription exists': () => subscriptionValidated,
   });
+
+  // ✅ Log ONCE outside loop
+  if (subscriptionLog) console.log(subscriptionLog);
 
   return passed;
 }
-
 
 /**
  * ===============================
@@ -1037,9 +1295,10 @@ export default function (data) {
   runStep('Related Course API',             relatedCourseAPI,              data, counters);
   runStep('Course Details API',             courseDetailsPageAPI,          data, counters);
   runStep('Complimentary Course API',       complimentaryCourseAPI,        data, counters);
-  runStep('Masterclass Track 1 API',        verifyTrack1API,               data, counters);
-  runStep('Masterclass Track 2 API',        verifyTrack2API,               data, counters);
-  runStep('Masterclass Track 3 API',        verifyTrack3API,               data, counters);
+  runStep('verifyTrack1MasterclassCoursesAPI', verifyTrack1MasterclassCoursesAPI, data, counters);
+  runStep('verifyTrack2MasterclassCoursesAPI', verifyTrack2MasterclassCoursesAPI, data, counters);
+  runStep('verifyTrack3MasterclassCoursesAPI', verifyTrack3MasterclassCoursesAPI, data, counters);
+  runStep('verifyTrack4MasterclassCoursesAPI', verifyTrack4MasterclassCoursesAPI, data, counters);
   runStep('Subscription API',               verifyPlanPageAPI,             data, counters);
   runStep('Podcast Track 1 API',            podcastTrack1API,              data, counters);
   runStep('Podcast Track 2 API',            podcastTrack2API,              data, counters);
@@ -1063,6 +1322,15 @@ export default function (data) {
   runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation1, data, counters);
   runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation2, data, counters);
   runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation3, data, counters);
+  
+
+
+
+
+
+
+
+
 
   console.log('\n================ Final API Tests EXECUTION SUMMARY ================');
   console.log(`✅ Tests Passed : ${counters.passed}`);
