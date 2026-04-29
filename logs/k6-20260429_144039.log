@@ -1,0 +1,323 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: scripts/stress_postlogin_test_copy.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 500 max VUs, 1h0m30s max duration (incl. graceful stop):
+              * post_login_load: Up to 500 looping VUs for 1h0m0s over 5 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+time="2026-04-29T14:40:42+05:30" level=info msg="Session ID: 498607" source=console
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+
+Run               [ 100% ] setup()
+post_login_load   [   0% ]
+time="2026-04-29T14:40:49+05:30" level=info msg="✅ TOKEN GENERATED ONCE" source=console
+
+running (0h00m11.0s), 000/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 000/500 VUs  0h00m00.7s/1h00m00.0s
+
+running (0h00m12.0s), 000/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 000/500 VUs  0h00m01.7s/1h00m00.0s
+
+running (0h00m13.0s), 000/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 000/500 VUs  0h00m02.7s/1h00m00.0s
+
+running (0h00m14.0s), 000/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 000/500 VUs  0h00m03.7s/1h00m00.0s
+
+running (0h00m15.0s), 000/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 000/500 VUs  0h00m04.7s/1h00m00.0s
+
+running (0h00m16.0s), 000/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 000/500 VUs  0h00m05.7s/1h00m00.0s
+time="2026-04-29T14:40:55+05:30" level=info msg="➡️ default() | VU=7 | ITER=0" source=console
+time="2026-04-29T14:40:56+05:30" level=info msg="\n Test 1: Profile API" source=console
+
+running (0h00m17.0s), 001/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 001/500 VUs  0h00m06.7s/1h00m00.0s
+
+running (0h00m18.0s), 001/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 001/500 VUs  0h00m07.7s/1h00m00.0s
+time="2026-04-29T14:40:58+05:30" level=info msg="✅ RESULT: Profile API PASSED" source=console
+time="2026-04-29T14:40:58+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m19.0s), 001/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 001/500 VUs  0h00m08.7s/1h00m00.0s
+time="2026-04-29T14:40:58+05:30" level=info msg="\n Test 2: Related Course API" source=console
+time="2026-04-29T14:40:58+05:30" level=info msg="⏱ Related Course RT: 259 ms" source=console
+time="2026-04-29T14:40:58+05:30" level=info msg="📘 Related Course 1: AI for Accountants: Friend or Foe" source=console
+time="2026-04-29T14:40:58+05:30" level=info msg="📘 Related Course 2: Investigating Fraud with Data Models" source=console
+time="2026-04-29T14:40:58+05:30" level=info msg="✅ RESULT: Related Course API PASSED" source=console
+time="2026-04-29T14:40:58+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m20.0s), 001/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 001/500 VUs  0h00m09.7s/1h00m00.0s
+time="2026-04-29T14:40:59+05:30" level=info msg="\n Test 3: Course Details API" source=console
+
+running (0h00m21.0s), 001/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 001/500 VUs  0h00m10.7s/1h00m00.0s
+time="2026-04-29T14:41:01+05:30" level=info msg="⏱ Course Details RT: 1698 ms" source=console
+time="2026-04-29T14:41:01+05:30" level=info msg="📘 Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-04-29T14:41:01+05:30" level=info msg="✅ RESULT: Course Details API PASSED" source=console
+time="2026-04-29T14:41:01+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m22.0s), 001/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 001/500 VUs  0h00m11.7s/1h00m00.0s
+time="2026-04-29T14:41:01+05:30" level=info msg="\n Test 4: Complimentary Course API" source=console
+time="2026-04-29T14:41:01+05:30" level=info msg="➡️ default() | VU=2 | ITER=0" source=console
+
+running (0h00m23.0s), 002/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 002/500 VUs  0h00m12.7s/1h00m00.0s
+
+running (0h00m24.0s), 002/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 002/500 VUs  0h00m13.7s/1h00m00.0s
+time="2026-04-29T14:41:03+05:30" level=info msg="\n Test 1: Profile API" source=console
+
+running (0h00m25.0s), 002/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 002/500 VUs  0h00m14.7s/1h00m00.0s
+time="2026-04-29T14:41:05+05:30" level=info msg="⏱ Complimentary Course RT (ms): 3396" source=console
+time="2026-04-29T14:41:05+05:30" level=info msg="Complimentary Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-04-29T14:41:05+05:30" level=info msg="✅ RESULT: Complimentary Course API PASSED" source=console
+time="2026-04-29T14:41:05+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m26.0s), 002/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 002/500 VUs  0h00m15.7s/1h00m00.0s
+time="2026-04-29T14:41:05+05:30" level=info msg="\n Test 5: verifyTrack1MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:05+05:30" level=info msg="✅ RESULT: Profile API PASSED" source=console
+time="2026-04-29T14:41:05+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:06+05:30" level=info msg="\n Test 2: Related Course API" source=console
+
+running (0h00m27.0s), 002/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 002/500 VUs  0h00m16.7s/1h00m00.0s
+time="2026-04-29T14:41:07+05:30" level=info msg="⏱ Track 6 Masterclass Courses RT (ms): 1601" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="🎯 Track 6 Title: Microsoft Copilot: Dawn of the Intelligent System" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="✅ RESULT: verifyTrack1MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m28.0s), 002/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   0% ] 002/500 VUs  0h00m17.7s/1h00m00.0s
+time="2026-04-29T14:41:07+05:30" level=info msg="\n Test 6: verifyTrack2MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="➡️ default() | VU=11 | ITER=0" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="⏱ Related Course RT: 1506 ms" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="📘 Related Course 1: AI for Accountants: Friend or Foe" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="📘 Related Course 2: Investigating Fraud with Data Models" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg="✅ RESULT: Related Course API PASSED" source=console
+time="2026-04-29T14:41:07+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:08+05:30" level=info msg="\n Test 1: Profile API" source=console
+time="2026-04-29T14:41:08+05:30" level=info msg="\n Test 3: Course Details API" source=console
+
+running (0h00m29.0s), 003/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 003/500 VUs  0h00m18.7s/1h00m00.0s
+time="2026-04-29T14:41:09+05:30" level=info msg="⏱ Track 7 Masterclass Courses RT (ms): 1471" source=console
+time="2026-04-29T14:41:09+05:30" level=info msg="🎯 Track 7 Title: Built to Digitize" source=console
+time="2026-04-29T14:41:09+05:30" level=info msg="✅ RESULT: verifyTrack2MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:09+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m30.0s), 003/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 003/500 VUs  0h00m19.7s/1h00m00.0s
+time="2026-04-29T14:41:09+05:30" level=info msg="\n Test 7: verifyTrack3MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:10+05:30" level=info msg="⏱ Course Details RT: 1822 ms" source=console
+time="2026-04-29T14:41:10+05:30" level=info msg="📘 Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-04-29T14:41:10+05:30" level=info msg="✅ RESULT: Course Details API PASSED" source=console
+time="2026-04-29T14:41:10+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m31.0s), 003/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 003/500 VUs  0h00m20.7s/1h00m00.0s
+time="2026-04-29T14:41:10+05:30" level=info msg="\n Test 4: Complimentary Course API" source=console
+time="2026-04-29T14:41:10+05:30" level=info msg="✅ RESULT: Profile API PASSED" source=console
+time="2026-04-29T14:41:10+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:11+05:30" level=info msg="\n Test 2: Related Course API" source=console
+time="2026-04-29T14:41:11+05:30" level=info msg="⏱ Track 8 Masterclass Courses RT (ms): 1789" source=console
+time="2026-04-29T14:41:11+05:30" level=info msg="🎯 Track 8 Title: Transforming Client Services: People, Processes and AI" source=console
+time="2026-04-29T14:41:11+05:30" level=info msg="✅ RESULT: verifyTrack3MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:11+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m32.0s), 003/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 003/500 VUs  0h00m21.7s/1h00m00.0s
+time="2026-04-29T14:41:11+05:30" level=info msg="\n Test 8: verifyTrack4MasterclassCoursesAPI" source=console
+
+running (0h00m33.0s), 003/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 003/500 VUs  0h00m22.7s/1h00m00.0s
+time="2026-04-29T14:41:12+05:30" level=info msg="⏱ Related Course RT: 1491 ms" source=console
+time="2026-04-29T14:41:12+05:30" level=info msg="📘 Related Course 1: AI for Accountants: Friend or Foe" source=console
+time="2026-04-29T14:41:12+05:30" level=info msg="📘 Related Course 2: Investigating Fraud with Data Models" source=console
+time="2026-04-29T14:41:12+05:30" level=info msg="✅ RESULT: Related Course API PASSED" source=console
+time="2026-04-29T14:41:12+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:13+05:30" level=info msg="\n Test 3: Course Details API" source=console
+
+running (0h00m34.0s), 003/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 003/500 VUs  0h00m23.7s/1h00m00.0s
+time="2026-04-29T14:41:13+05:30" level=info msg="⏱ Complimentary Course RT (ms): 3006" source=console
+time="2026-04-29T14:41:13+05:30" level=info msg="Complimentary Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-04-29T14:41:13+05:30" level=info msg="✅ RESULT: Complimentary Course API PASSED" source=console
+time="2026-04-29T14:41:13+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:13+05:30" level=info msg="➡️ default() | VU=8 | ITER=0" source=console
+time="2026-04-29T14:41:14+05:30" level=info msg="⏱ Track 12 Masterclass Courses RT (ms): 2180" source=console
+time="2026-04-29T14:41:14+05:30" level=info msg="🎯 Track 12 Title: Public Speaking for Business Success" source=console
+time="2026-04-29T14:41:14+05:30" level=info msg="✅ RESULT: verifyTrack4MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:14+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:14+05:30" level=info msg="\n Test 5: verifyTrack1MasterclassCoursesAPI" source=console
+
+running (0h00m35.0s), 004/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 004/500 VUs  0h00m24.7s/1h00m00.0s
+time="2026-04-29T14:41:14+05:30" level=info msg="\n Test 9: Subscription API" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="⏱ Course Details RT: 1849 ms" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="📘 Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="✅ RESULT: Course Details API PASSED" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="⏱ Track 6 Masterclass Courses RT (ms): 1243" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="🎯 Track 6 Title: Microsoft Copilot: Dawn of the Intelligent System" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="✅ RESULT: verifyTrack1MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m36.0s), 004/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 004/500 VUs  0h00m25.7s/1h00m00.0s
+time="2026-04-29T14:41:15+05:30" level=info msg="\n Test 4: Complimentary Course API" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="\n Test 1: Profile API" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="⏱ Subscription API RT (ms): 1073" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="Plans on Subscription page: Starter" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="Plans on Subscription page: Pro" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="Plans on Subscription page: Enterprise" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="✅ RESULT: Subscription API PASSED" source=console
+time="2026-04-29T14:41:15+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:15+05:30" level=info msg="\n Test 6: verifyTrack2MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:16+05:30" level=info msg="\n Test 10: Podcast Track 1 API" source=console
+
+running (0h00m37.0s), 004/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 004/500 VUs  0h00m26.7s/1h00m00.0s
+time="2026-04-29T14:41:16+05:30" level=info msg="⏱ Track 7 Masterclass Courses RT (ms): 828" source=console
+time="2026-04-29T14:41:16+05:30" level=info msg="🎯 Track 7 Title: Built to Digitize" source=console
+time="2026-04-29T14:41:16+05:30" level=info msg="✅ RESULT: verifyTrack2MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:16+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="\n Test 7: verifyTrack3MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="⏱ Podcast Track 6 RT (ms): 1197" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="🎧 Podcast Track 6 Title: Resilience, Reinvention and the Future of Audit" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="✅ RESULT: Podcast Track 1 API PASSED" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m38.0s), 004/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 004/500 VUs  0h00m27.7s/1h00m00.0s
+time="2026-04-29T14:41:17+05:30" level=info msg="⏱ Complimentary Course RT (ms): 1993" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="Complimentary Course Title: Moneyball Your Finances with ABC" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="✅ RESULT: Complimentary Course API PASSED" source=console
+time="2026-04-29T14:41:17+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:17+05:30" level=info msg="\n Test 11: Podcast Track 2 API" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="\n Test 5: verifyTrack1MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="⏱ Track 8 Masterclass Courses RT (ms): 1076" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="🎯 Track 8 Title: Transforming Client Services: People, Processes and AI" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="✅ RESULT: verifyTrack3MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m39.0s), 004/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 004/500 VUs  0h00m28.7s/1h00m00.0s
+time="2026-04-29T14:41:18+05:30" level=info msg="⏱ Podcast Track 7 RT (ms): 774" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="🎧 Podcast Track 7 Title: Digitalizing Audit Workflows" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="✅ RESULT: Podcast Track 2 API PASSED" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="\n Test 8: verifyTrack4MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="⏱ Track 6 Masterclass Courses RT (ms): 948" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="🎯 Track 6 Title: Microsoft Copilot: Dawn of the Intelligent System" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg="✅ RESULT: verifyTrack1MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:18+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="\n Test 12: Podcast Track 3 API" source=console
+
+running (0h00m40.0s), 004/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 004/500 VUs  0h00m29.7s/1h00m00.0s
+time="2026-04-29T14:41:19+05:30" level=info msg="\n Test 6: verifyTrack2MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="➡️ default() | VU=12 | ITER=0" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="⏱ Track 12 Masterclass Courses RT (ms): 916" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="🎯 Track 12 Title: Public Speaking for Business Success" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="✅ RESULT: verifyTrack4MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="⏱ Podcast Track 8 RT (ms): 628" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="🎧 Podcast Track 8 Title: CIOs and CPAs: Partners in Progress" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="✅ RESULT: Podcast Track 3 API PASSED" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="⏱ Track 7 Masterclass Courses RT (ms): 403" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="🎯 Track 7 Title: Built to Digitize" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg="✅ RESULT: verifyTrack2MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:19+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="\n Test 9: Subscription API" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="\n Test 13: Complimentary Podcast API" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="\n Test 7: verifyTrack3MasterclassCoursesAPI" source=console
+
+running (0h00m41.0s), 005/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 005/500 VUs  0h00m30.7s/1h00m00.0s
+time="2026-04-29T14:41:20+05:30" level=info msg="⏱ Subscription API RT (ms): 587" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="Plans on Subscription page: Starter" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="Plans on Subscription page: Pro" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="Plans on Subscription page: Enterprise" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="✅ RESULT: Subscription API PASSED" source=console
+time="2026-04-29T14:41:20+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:20+05:30" level=info msg="\n Test 1: Profile API" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="⏱ Complimentary Podcast RT (ms): 824" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="Podcast Complimentary Course Title: CIOs and CPAs: Partners in Progress" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="✅ RESULT: Complimentary Podcast API PASSED" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="\n Test 10: Podcast Track 1 API" source=console
+
+running (0h00m42.0s), 005/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 005/500 VUs  0h00m31.7s/1h00m00.0s
+time="2026-04-29T14:41:21+05:30" level=info msg="⏱ Track 8 Masterclass Courses RT (ms): 1100" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="🎯 Track 8 Title: Transforming Client Services: People, Processes and AI" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="✅ RESULT: verifyTrack3MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="\n Test 14: Essential Podcast Course API" source=console
+time="2026-04-29T14:41:21+05:30" level=info msg="\n Test 8: verifyTrack4MasterclassCoursesAPI" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="⏱ Podcast Track 6 RT (ms): 980" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="🎧 Podcast Track 6 Title: Resilience, Reinvention and the Future of Audit" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="✅ RESULT: Podcast Track 1 API PASSED" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="⏱ Essential Podcast RT (ms): 816" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="Essential Podcast Course Title: Accounting in the Age of Digital Assets" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="✅ RESULT: Essential Podcast Course API PASSED" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg=-------------------------------------------------- source=console
+
+running (0h00m43.0s), 005/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 005/500 VUs  0h00m32.7s/1h00m00.0s
+time="2026-04-29T14:41:22+05:30" level=info msg="⏱ Track 12 Masterclass Courses RT (ms): 545" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="🎯 Track 12 Title: Public Speaking for Business Success" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="✅ RESULT: verifyTrack4MasterclassCoursesAPI PASSED" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="✅ RESULT: Profile API PASSED" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg=-------------------------------------------------- source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="\n Test 11: Podcast Track 2 API" source=console
+time="2026-04-29T14:41:22+05:30" level=info msg="\n Test 15: Nano Track 1 API" source=console
+time="2026-04-29T14:41:23+05:30" level=info msg="\n Test 9: Subscription API" source=console
+time="2026-04-29T14:41:23+05:30" level=info msg="\n Test 2: Related Course API" source=console
+
+running (0h00m44.0s), 005/500 VUs, 0 complete and 0 interrupted iterations
+post_login_load   [   1% ] 005/500 VUs  0h00m33.7s/1h00m00.0s
