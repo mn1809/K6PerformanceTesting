@@ -40,10 +40,10 @@ export let options = {
       executor: 'ramping-vus',        // ✅ Gradual ramp instead of instant spike
       startVUs: 0,
       stages: [
-        { duration: '2m',  target: 1  },  // 🔼 Warm up
-        { duration: '2m', target: 1  },  // 🔼 Mid load
-        { duration: '2m', target: 1 },  // 🔼 Peak stress
-        { duration: '2m', target: 1 },  // ➡️ Hold peak
+        { duration: '10m',  target: 50  },  // 🔼 Warm up
+        { duration: '10m', target: 100  },  // 🔼 Mid load
+        { duration: '10m', target: 100 },  // 🔼 Peak stress
+        { duration: '10m', target: 50 },  // ➡️ Hold peak
         { duration: '2m',  target: 0    },  // 🔽 Cool down
       ],
       gracefulRampDown: '30s',
@@ -1382,11 +1382,11 @@ export default function (data) {
   sleep(0.5);
   runStep('My Orders API',                  verifyMyOrdersAPI,             data, counters);
   sleep(0.5);
-  runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation1, data, counters);
-  sleep(0.5);
-  runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation2, data, counters);
-  sleep(0.5);
-  runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation3, data, counters);
+  //runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation1, data, counters);
+  //sleep(0.5);
+  //runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation2, data, counters);
+  //sleep(0.5);
+  //runStep('Learning Pathway AI&Innovation API', verifyLearningPathwayAIInnovation3, data, counters);
   
 
 
