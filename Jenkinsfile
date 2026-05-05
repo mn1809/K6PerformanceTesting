@@ -68,10 +68,11 @@ pipeline {
                     def status      = (errorRate > 0.30) ? "FAILED" : "PASSED"
                     def priority    = (errorRate > 0.30) ? "High"   : "Low"
 
-                    def consoleLog  = readFile('k6-console.log')
-                    if (consoleLog.length() > 20000) {
+                    //def consoleLog  = readFile('k6-console.log')
+                    
+                    //if (consoleLog.length() > 20000) {
                         consoleLog = consoleLog.take(20000) + "\n\n... [truncated]"
-                    }
+                    //}
 
                     def today       = new Date().format("yyyy-MM-dd")
                     def ticketTitle = "[K6 Performance] Daily Run - ${today} | ${status}"
@@ -91,7 +92,8 @@ Requests/sec      : ${rps.toString().take(6)}
 Max VUs           : ${vus}
 
 --- CONSOLE OUTPUT ---
-${consoleLog}"""
+Jenkins Build: ${env.BUILD_URL}consoleFull"""
+//${consoleLog}"""
 
                     def payload = groovy.json.JsonOutput.toJson([
                         fields: [
