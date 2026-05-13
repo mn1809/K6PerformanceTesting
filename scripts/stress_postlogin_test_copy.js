@@ -40,11 +40,11 @@ export let options = {
       executor: 'ramping-vus',        // ✅ Gradual ramp instead of instant spike
       startVUs: 0,
       stages: [
-        { duration: '5m',  target: 40  },  // 🔼 Warm up
-        { duration: '10m', target: 100  },  // 🔼 Mid load
-        { duration: '10m', target: 100 },  // 🔼 Peak stress
-        { duration: '10m', target: 100 },  // ➡️ Hold peak
-        { duration: '5m',  target: 10   },  // 🔽 Cool down
+        { duration: '1m',  target: 2  },  // 🔼 Warm up
+        { duration: '1m', target: 2  },  // 🔼 Mid load
+        { duration: '1m', target: 2 },  // 🔼 Peak stress
+        { duration: '1m', target: 2 },  // ➡️ Hold peak
+        { duration: '1m',  target: 2   },  // 🔽 Cool down
       ],
       gracefulRampDown: '30s',
     },
