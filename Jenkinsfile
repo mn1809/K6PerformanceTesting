@@ -18,7 +18,6 @@ pipeline {
             }
         }
 
-        // ✅ Fixed brace + indentation
         stage('Run k6 Test') {
             steps {
                 script {
@@ -86,7 +85,7 @@ Requests/sec      : ${rps.toString().take(6)}
 Max VUs           : ${vus}
 
 Jenkins Build: ${env.BUILD_URL}consoleFull
-Full log attached as file"""
+Full log attached as zip file"""
 
                     def payload = groovy.json.JsonOutput.toJson([
                         fields: [
@@ -121,18 +120,21 @@ Full log attached as file"""
 
                         def issueKey = respJson.key
 
-                        // ✅ Trim log before attaching — avoids 413!
-                        bat 'powershell -Command "Get-Content k6-console.log -Tail 500 | Set-Content k6-trimmed.log"'
+                        // ✅ Zip the FULL log — no trimming. k6 logs compress ~90%.
+                        def zipName = "k6-console-${env.BUILD_NUMBER}.zip"
+                        bat """
+                            powershell -Command "Compress-Archive -Path k6-console.log -DestinationPath ${zipName} -Force"
+                        """
 
                         bat """
                             curl -s -o jira-attach-response.json ^
                                  -X POST ^
                                  -H "X-Atlassian-Token: no-check" ^
                                  -u "${env.JIRA_USER_EMAIL}:${env.JIRA_API_TOKEN}" ^
-                                 -F "file=@k6-trimmed.log" ^
+                                 -F "file=@${zipName}" ^
                                  "${env.JIRA_BASE_URL}/rest/api/2/issue/${issueKey}/attachments"
                         """
-                        echo "📎 Trimmed log attached to ${issueKey}"
+                        echo "📎 Full log (zipped) attached to ${issueKey} as ${zipName}"
                     } else {
                         echo "⚠️ Jira API returned: ${httpStatus}"
                         echo "Response: ${jiraResp}"
@@ -144,7 +146,7 @@ Full log attached as file"""
 
     post {
         always {
-            archiveArtifacts artifacts: 'k6-console.log, k6-trimmed.log, k6-summary.json',
+            archiveArtifacts artifacts: 'k6-console.log, k6-console-*.zip, k6-summary.json',
                              allowEmptyArchive: true
         }
         success  { echo '✅ K6 passed — all thresholds met' }
