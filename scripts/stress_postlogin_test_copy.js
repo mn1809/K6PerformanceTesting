@@ -42,8 +42,8 @@ export let options = {
       stages: [
         { duration: '5m',  target: 40  },  // 🔼 Warm up
         { duration: '10m', target: 100  },  // 🔼 Mid load
-        { duration: '10m', target: 100 },  // 🔼 Peak stress
-        { duration: '10m', target: 100 },  // ➡️ Hold peak
+        { duration: '10m', target: 150 },  // 🔼 Peak stress
+        { duration: '10m', target: 150 },  // ➡️ Hold peak
         { duration: '5m',  target: 10   },  // 🔽 Cool down
       ],
       gracefulRampDown: '30s',
