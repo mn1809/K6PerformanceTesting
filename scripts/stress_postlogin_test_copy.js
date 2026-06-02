@@ -41,10 +41,10 @@ export let options = {
       startVUs: 0,
       stages: [
         { duration: '5m',  target: 40  },  // 🔼 Warm up
-        { duration: '10m', target: 100  },  // 🔼 Mid load
-        { duration: '10m', target: 150 },  // 🔼 Peak stress
-        { duration: '10m', target: 150 },  // ➡️ Hold peak
-        { duration: '5m',  target: 10   },  // 🔽 Cool down
+        { duration: '10m', target: 150  },  // 🔼 Mid load
+        { duration: '10m', target: 200 },  // 🔼 Peak stress
+        { duration: '10m', target: 200 },  // ➡️ Hold peak
+        { duration: '5m',  target: 20   },  // 🔽 Cool down
       ],
       gracefulRampDown: '30s',
     },
